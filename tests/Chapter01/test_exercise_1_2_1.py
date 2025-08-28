@@ -4,7 +4,7 @@
 Tests for Exercise_1_2_1.py
 """
 
-import Exercise_1_2_1 as ex
+import Chapter01.Exercise_1_2_1 as ex
 
 def test_description_contains_keywords():
     desc = ex.description().lower()

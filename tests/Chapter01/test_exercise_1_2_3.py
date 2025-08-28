@@ -4,7 +4,7 @@
 Tests for Exercise_1_2_3.py
 """
 
-import Exercise_1_2_3 as ex
+import Chapter01.Exercise_1_2_3 as ex
 
 def test_smallest_n_condition():
     n = ex.smallest_n()

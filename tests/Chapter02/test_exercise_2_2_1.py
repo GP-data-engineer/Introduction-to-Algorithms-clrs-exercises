@@ -4,7 +4,7 @@
 Tests for Exercise_2_2_1.py
 """
 
-import Exercise_2_2_1 as ex
+import Chapter02.Exercise_2_2_1 as ex
 
 
 def test_function_growth():

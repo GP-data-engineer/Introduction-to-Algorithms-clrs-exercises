@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# test_problem_1_1.py
+# test_problem_2_1.py
 """
-Tests for Problem_1_1.py
+Tests for Problem_2_1.py
 """
 
-import Problem_1_1 as problem
+import Chapter02.Problem_2_1 as problem
 
 
 def test_max_n_for_time_increases_with_limit():

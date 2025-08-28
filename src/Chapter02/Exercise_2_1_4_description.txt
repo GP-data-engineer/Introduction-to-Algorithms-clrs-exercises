@@ -1,0 +1,3 @@
+W tym zadaniu implementujemy dodawanie dwóch liczb binarnych zapisanych w postaci tablic bitów. Każda tablica A i B ma długość n i reprezentuje liczbę w kodzie binarnym, gdzie indeks 0 to najbardziej znaczący bit (MSB). Wynik zapisywany jest w tablicy C o długości n+1, aby uwzględnić ewentualny przeniesiony bit (carry) z dodawania najbardziej znaczących bitów.
+
+Algorytm działa od końca tablic (LSB) do początku, sumując odpowiadające sobie bity oraz przeniesienie z poprzedniego kroku. Wynik pojedynczego dodawania modulo 2 trafia do C[i+1], a przeniesienie obliczamy jako całkowity wynik dzielony przez 2.

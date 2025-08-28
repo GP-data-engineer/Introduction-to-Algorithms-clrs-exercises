@@ -1,0 +1,34 @@
+Opis po polsku
+
+W tym zadaniu Exercise_2_2_1.py:
+
+    Masz wielomian:
+
+f(n)=n31000−100n2−100n+3f(n) = \frac{n^3}{1000} - 100n^2 - 100n + 3
+
+    W analizie asymptotycznej patrzymy na zachowanie dla dużych n.
+
+    Składnik dominujący to n3/1000n^3 / 1000, ponieważ rośnie najszybciej ze wszystkich.
+
+    Stałe współczynniki (1/1000, -100) oraz składniki niższego rzędu pomijamy w notacji Θ.
+
+    Ostatecznie:
+
+f(n)∈Θ(n3)f(n) \in \Theta(n^3)
+
+Kod w pliku:
+
+    Zawiera treść zadania i komentarze w języku angielskim.
+
+    Definiuje funkcję analyze_function(), która dla kilku wartości n oblicza wartość f(n) i pokazuje, że przy dużych n dominuje składnik n3n^3.
+
+    W sekcji __main__ umieszczona jest informacja o końcowej klasyfikacji w notacji Θ.
+
+
+
+
+Opis po polsku do testu
+
+    Pierwszy test sprawdza, czy dla dużych wartości n składnik n3n^3 faktycznie dominuje nad n2n^2 — czyli to, co ma uzasadniać wybór notacji Θ.
+
+    Drugi test sprawdza, czy w docstringu funkcji prove_theta() jest zawarta informacja o klasyfikacji do Θ(n³), co potwierdza poprawność teoretyczną.

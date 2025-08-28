@@ -4,7 +4,7 @@
 Tests for Exercise_1_2_2.py
 """
 
-import Exercise_1_2_2 as ex
+import Chapter01.Exercise_1_2_2 as ex
 
 def test_insertion_faster_range_small():
     result = ex.insertion_faster_range(20)
