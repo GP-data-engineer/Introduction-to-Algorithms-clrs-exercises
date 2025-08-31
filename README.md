@@ -61,8 +61,8 @@ pytest -q
 ## Copyright and Source Guidelines
 - This repository contains original implementations of the tasks by the author. Direct copying of other people's solutions is strictly prohibited.
 - The README provides a link to the official Selected Solutions file, which serves solely as a reference for the task index.
+
 ***
----
 ## Uwaga o prawach autorskich i źródłach
 - To repo zawiera **Twoje implementacje** zadań; nie kopiuj dosłownie cudzych rozwiązań.
 - W README zawarto link do oficjalnego pliku *Selected Solutions* jako punktu odniesienia do indeksu zadań.
