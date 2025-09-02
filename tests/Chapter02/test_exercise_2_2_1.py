@@ -13,7 +13,7 @@ def test_function_growth():
     Here we test values directly.
     """
     for n in [1000, 5000, 10000]:
-        fn_value = (n**3) / 1000 - 100*(n**2) - 100*n + 3
+        fn_value = (n**3) - 100*(n**2) - 100*n + 3
         # n^3 term should be much larger than n^2 term
         assert abs(fn_value) > abs(100*(n**2))
 
