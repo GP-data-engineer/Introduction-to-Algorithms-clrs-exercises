@@ -5,7 +5,8 @@ Express the function n³ / 1000 – 100n² – 100n + 3 using Θ-notation.
 Also, prove it formally using the definition of Θ.
 """
 def analyze_function(n: int) -> float:
-    return (n**3) / 1000 - 100*(n**2) - 100*n + 3
+    return (n**3) - 100*(n**2) - 100*n + 3
+
 
 
 def prove_theta():
