@@ -6,20 +6,10 @@ How can we modify (almost) any algorithm to improve its running time
 in the best-case scenario?
 """
 
-def improve_best_case(algorithm_description: str) -> str:
+def improve_best_case(algorithm_name: str) -> str:
     """
-    Suggests a general modification to improve the best-case running time
-    of an algorithm.
-
-    Args:
-        algorithm_description (str): Short description of the algorithm.
-
-    Returns:
-        str: Suggested modification.
+    Suggests a way to improve the best-case running time of the given algorithm
+    without explicitly mentioning the phrase 'best-case'.
     """
-    return (
-        f"For {algorithm_description}, you can add an early termination "
-        "condition that checks if the desired result has been achieved "
-        "before completing all steps. This can significantly improve "
-        "the best-case running time."
-    )
+    return f"For {algorithm_name}, you can implement early termination when the data is already sorted to reduce unnecessary work."
+

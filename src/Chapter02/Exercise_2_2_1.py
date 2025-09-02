@@ -4,16 +4,9 @@ Exercise 2.2-1
 Express the function n³ / 1000 – 100n² – 100n + 3 using Θ-notation.
 Also, prove it formally using the definition of Θ.
 """
+def analyze_function(n: int) -> float:
+    return (n**3) / 1000 - 100*(n**2) - 100*n + 3
 
-def analyze_function():
-    """
-    For large values of n, the term with the highest growth rate dominates.
-    In this case, the n³ term will grow faster than n², n, or any constant.
-    Constants and lower-order terms can be ignored in Θ-notation.
-    """
-    for n in [10, 100, 1000, 10000]:
-        value = (n**3)/1000 - 100*(n**2) - 100*n + 3
-        print(f"n = {n:<6}  f(n) = {value:<20}  Dominant term: n^3")
 
 def prove_theta():
     """
@@ -39,8 +32,12 @@ def prove_theta():
     """
     print("Formal proof by definition is explained in the docstring above.")
 
+
 if __name__ == "__main__":
-    analyze_function()
+    for n in [10, 100, 1000, 10000]:
+        value = analyze_function(n)
+        print(f"n = {n:<6}  f(n) = {value:<20}  Dominant term: n^3")
     prove_theta()
     # Final asymptotic classification:
     # f(n) ∈ Θ(n³)
+
