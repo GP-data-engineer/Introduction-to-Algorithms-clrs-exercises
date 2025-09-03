@@ -3,7 +3,7 @@
 """
 1-1. Comparison of execution times
 
-For each function f(n) and time t (in the table from the problem statement),
+For each function f(n) and time t (from the problem statement table),
 determine the largest problem size n that can be solved within time t,
 assuming the algorithm takes f(n) microseconds to solve a problem of size n.
 """
@@ -35,15 +35,38 @@ functions: Dict[str, Callable[[int], float]] = {
 }
 
 def max_n_for_time(limit_microsec: int, f: Callable[[int], float]) -> int:
-    """Find the maximum n such that f(n) <= limit (in microseconds)."""
+    """
+    Find the maximum n such that f(n) <= limit (in microseconds).
+    Uses exponential search to find an upper bound, then binary search
+    to find the exact maximum n.
+    """
+    # Quick check for n=1
+    if f(1) > limit_microsec:
+        return 0
+
+    # 1. Exponential search to find an upper bound
     n = 1
     while True:
         try:
             if f(n) > limit_microsec:
-                return n - 1
-            n += 1
+                break
+            n *= 2
         except OverflowError:
-            return n - 1
+            break
+
+    # 2. Binary search between (n//2, n) to find the exact maximum
+    low, high = n // 2, n
+    while low < high:
+        mid = (low + high) // 2
+        try:
+            if f(mid) <= limit_microsec:
+                low = mid + 1
+            else:
+                high = mid
+        except OverflowError:
+            high = mid
+
+    return low - 1
 
 def main():
     header = ["f(n)"] + list(time_limits.keys())
