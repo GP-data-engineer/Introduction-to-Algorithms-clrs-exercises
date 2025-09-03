@@ -9,9 +9,16 @@ from math import log2
 from typing import List
 
 def insertion_faster_range(limit: int = 1000) -> List[int]:
+    """
+    Returns a list of n values (2..limit) for which insertion sort
+    is faster than merge sort based on the given step counts.
+    """
     return [n for n in range(2, limit + 1) if 8 * n * n < 64 * n * log2(n)]
 
 def max_n_for_insertion() -> int:
+    """
+    Finds the largest n for which insertion sort is faster than merge sort.
+    """
     n = 2
     last = 0
     while 8 * n * n < 64 * n * log2(n):
