@@ -1,86 +1,117 @@
-#!/usr/bin/env python3
-# Problem_1_1.py
 """
-1-1. Comparison of execution times
+File: Problem_1_1.py
+Task: Introduction to Algorithms (CLRS) - Problem 1-1
 
-For each function f(n) and time t (from the problem statement table),
-determine the largest problem size n that can be solved within time t,
-assuming the algorithm takes f(n) microseconds to solve a problem of size n.
+Description:
+------------
+This program computes, for various growth-rate functions f(n),
+the largest integer n that can be computed within a given time limit.
+The time limits range from 1 second to 1 century, and the functions
+include logarithmic, polynomial, exponential, and factorial growth.
+
+The goal is to illustrate how quickly different functions grow and
+how feasible it is to compute them within realistic time constraints.
+
+Optimizations:
+--------------
+- Direct mathematical formulas are used where possible to avoid slow iteration.
+- Binary search is applied for n log n.
+- Factorial is computed iteratively, but n remains small enough to be fast.
+- For log n, extremely large results are represented in scientific notation
+  in display only, but the actual integer is returned for testing.
+- Colored console output for better readability.
 """
 
 import math
-from typing import Callable, Dict
+from colorama import Fore, Style, init
 
-# Time limits in microseconds
-time_limits: Dict[str, int] = {
-    "1 second": 1_000_000,
-    "1 minute": 60 * 1_000_000,
-    "1 hour": 60 * 60 * 1_000_000,
-    "1 day": 24 * 60 * 60 * 1_000_000,
-    "1 month": 30 * 24 * 60 * 60 * 1_000_000,
-    "1 year": 365 * 24 * 60 * 60 * 1_000_000,
-    "1 century": 100 * 365 * 24 * 60 * 60 * 1_000_000,
-}
+# Initialize colorama (works on Windows and Linux)
+init(autoreset=True)
 
-# Functions f(n)
-functions: Dict[str, Callable[[int], float]] = {
+# Dictionary of growth functions
+functions = {
     "log n": lambda n: math.log2(n),
     "sqrt n": lambda n: math.sqrt(n),
     "n": lambda n: n,
     "n log n": lambda n: n * math.log2(n),
-    "n^2": lambda n: n ** 2,
-    "n^3": lambda n: n ** 3,
-    "2^n": lambda n: 2 ** n,
-    "n!": lambda n: math.factorial(n),
+    "n^2": lambda n: n**2,
+    "n^3": lambda n: n**3,
+    "2^n": lambda n: 2**n,
+    "n!": lambda n: math.factorial(n)
 }
 
-def max_n_for_time(limit_microsec: int, f: Callable[[int], float]) -> int:
-    """
-    Find the maximum n such that f(n) <= limit (in microseconds).
-    Uses exponential search to find an upper bound, then binary search
-    to find the exact maximum n.
-    """
-    # Quick check for n=1
-    if f(1) > limit_microsec:
-        return 0
+# Time limits in seconds
+time_limits = {
+    "1 second": 1_000_000,
+    "1 minute": 60 * 1_000_000,
+    "1 hour": 3_600 * 1_000_000,
+    "1 day": 86_400 * 1_000_000,
+    "1 month": 2_592_000 * 1_000_000,
+    "1 year": 31_536_000 * 1_000_000,
+    "1 century": 3_153_600_000 * 1_000_000
+}
 
-    # 1. Exponential search to find an upper bound
-    n = 1
-    while True:
-        try:
-            if f(n) > limit_microsec:
-                break
-            n *= 2
-        except OverflowError:
-            break
-
-    # 2. Binary search between (n//2, n) to find the exact maximum
-    low, high = n // 2, n
-    while low < high:
-        mid = (low + high) // 2
-        try:
-            if f(mid) <= limit_microsec:
-                low = mid + 1
+def max_n_for_time(limit, func):
+    """
+    Given a time limit (in seconds) and a growth function f(n),
+    return the largest integer n such that f(n) <= limit.
+    Always returns an int for compatibility with tests.
+    """
+    if func == functions["log n"]:
+        # Return actual integer so tests can check it
+        return int(2 ** limit)
+    elif func == functions["√n"]:
+        return int(limit**2)
+    elif func == functions["n"]:
+        return int(limit)
+    elif func == functions["n log n"]:
+        # Solve n log2(n) <= limit using binary search
+        low, high = 1, int(limit)
+        while low < high:
+            mid = (low + high + 1) // 2
+            if mid * math.log2(mid) <= limit:
+                low = mid
             else:
-                high = mid
-        except OverflowError:
-            high = mid
-
-    return low - 1
+                high = mid - 1
+        return low
+    elif func == functions["n^2"]:
+        return int(math.isqrt(limit))
+    elif func == functions["n^3"]:
+        return int(round(limit ** (1/3)))
+    elif func == functions["2^n"]:
+        return int(math.log2(limit))
+    elif func == functions["n!"]:
+        n, fact = 1, 1
+        while fact <= limit:
+            n += 1
+            fact *= n
+        return n - 1
 
 def main():
-    header = ["f(n)"] + list(time_limits.keys())
-    print("{:<10}".format(header[0]), end="")
-    for col in header[1:]:
-        print(f"{col:>12}", end="")
-    print()
+    # Print table header
+    print(Fore.CYAN + Style.BRIGHT + f"{'f(n)':<10}", end="")
+    for t in time_limits:
+        print(Fore.YELLOW + f"{t:>12}", end="")
+    print(Style.RESET_ALL)
 
+    # Separator
+    print(Fore.MAGENTA + "-" * (10 + 12 * len(time_limits)))
+
+    # Print table rows
     for name, func in functions.items():
-        print(f"{name:<10}", end="")
-        for limit in time_limits.values():
-            max_n = max_n_for_time(limit, func)
-            print(f"{max_n:>12}", end="")
-        print()
+        print(Fore.CYAN + f"{name:<10}", end="")
+        for t in time_limits.values():
+            val = max_n_for_time(t, func)
+            # For huge log n values, display scientific notation instead of printing billions of digits
+            if func == functions["log n"] and t > 1000:
+                exp = t * math.log10(2)
+                display_val = f"~10^{exp:.2f}"
+                color = Fore.BLUE
+            else:
+                display_val = str(val)
+                color = Fore.GREEN if isinstance(val, int) and val < 1000 else Fore.RED
+            print(color + f"{display_val:>12}", end="")
+        print(Style.RESET_ALL)
 
 if __name__ == "__main__":
     main()
