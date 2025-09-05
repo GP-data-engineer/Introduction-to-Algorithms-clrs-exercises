@@ -21,9 +21,12 @@ Dowód:
     Z definicji: f(n) = Θ(g(n))
 """
 
-def is_big_o(f, g, n_values):
+def is_big_o(f, g, n_values, tolerance=1e6):
     """
-    Checks if f(n) = O(g(n)) empirically for given n_values.
+    Checks if f(n) = O(g(n)) empirically.
+    Conditions:
+    1. Ratio f(n)/g(n) must stay below tolerance.
+    2. Ratio should not grow drastically (trend check).
     """
     ratios = []
     for n in n_values:
@@ -33,11 +36,22 @@ def is_big_o(f, g, n_values):
         ratios.append(f(n) / gv)
     if not ratios:
         return False
-    return max(ratios) < float('inf')
 
-def is_big_omega(f, g, n_values):
+    if max(ratios) >= tolerance:
+        return False
+
+    # Trend check: if ratio grows >10x from start to end, likely not O
+    if ratios[-1] > ratios[0] * 10:
+        return False
+
+    return True
+
+def is_big_omega(f, g, n_values, tolerance=1e-6):
     """
-    Checks if f(n) = Ω(g(n)) empirically for given n_values.
+    Checks if f(n) = Ω(g(n)) empirically.
+    Conditions:
+    1. Ratio f(n)/g(n) must stay above tolerance.
+    2. Ratio should not drop drastically (trend check).
     """
     ratios = []
     for n in n_values:
@@ -47,16 +61,23 @@ def is_big_omega(f, g, n_values):
         ratios.append(f(n) / gv)
     if not ratios:
         return False
-    return min(ratios) > 0
+
+    if min(ratios) <= tolerance:
+        return False
+
+    # Trend check: if ratio drops >10x from start to end, likely not Ω
+    if ratios[-1] < ratios[0] / 10:
+        return False
+
+    return True
 
 def is_big_theta(f, g, n_values):
     """
-    Checks if f(n) = Θ(g(n)) empirically for given n_values.
+    Checks if f(n) = Θ(g(n)) empirically.
     """
     return is_big_o(f, g, n_values) and is_big_omega(f, g, n_values)
 
 if __name__ == "__main__":
-    # Demonstration
     f_example = lambda n: 5 * n**2 + 3 * n + 1
     g_example = lambda n: n**2
     n_values_demo = range(10, 1000)

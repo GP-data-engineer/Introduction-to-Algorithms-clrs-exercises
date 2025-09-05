@@ -11,4 +11,13 @@ def test_expr2_is_big_o_bound2():
 
 def test_not_big_o_when_bound_too_small():
     # 2^n is NOT O(n^2)
-    assert not is_big_o_of(lambda n: 2 ** n, lambda n: n ** 2, range(1, 20))
+    assert not is_big_o_of(lambda n: 2 ** n, lambda n: n ** 2, range(1, 50))
+
+def test_big_o_with_constant_factor():
+    # 5*n^3 is O(n^3)
+    assert is_big_o_of(lambda n: 5 * n**3, lambda n: n**3, range(1, 1000))
+
+def test_not_big_o_for_faster_growth():
+    # n! is not O(2^n)
+    from math import factorial
+    assert not is_big_o_of(lambda n: factorial(n), lambda n: 2**n, range(1, 15))
