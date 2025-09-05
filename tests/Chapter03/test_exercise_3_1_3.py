@@ -1,19 +1,15 @@
 import pytest
-from src.Chapter03.Exercise_3_1_2 import is_theta_equivalent
+from src.Chapter03.Exercise_3_1_3 import explain_statement_meaning
 
-def test_positive_a():
-    # a > 0, b > 0
-    assert is_theta_equivalent(5, 2, range(1, 1000))
+def test_explanation_contains_big_o():
+    explanation = explain_statement_meaning()
+    assert "Big-O" in explanation
 
-def test_negative_a():
-    # a < 0, b > 0
-    assert is_theta_equivalent(-3, 3, range(10, 1000))  # start from n > |a|
+def test_explanation_contains_big_omega():
+    explanation = explain_statement_meaning()
+    assert "Big-Omega" in explanation
 
-def test_fractional_b():
-    # fractional exponent b > 0
-    assert is_theta_equivalent(2, 0.5, range(1, 1000))
-
-def test_invalid_b():
-    # b <= 0 should raise ValueError
-    with pytest.raises(ValueError):
-        is_theta_equivalent(1, 0, range(1, 100))
+def test_explanation_not_empty():
+    explanation = explain_statement_meaning()
+    assert isinstance(explanation, str)
+    assert len(explanation) > 20
