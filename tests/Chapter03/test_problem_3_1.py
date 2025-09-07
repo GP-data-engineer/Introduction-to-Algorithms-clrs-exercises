@@ -1,33 +1,74 @@
-#!/usr/bin/env python3
-# test_problem_2_1.py
-"""
-Tests for Problem_2_1.py
-"""
+import pytest
+from src.Chapter03.Problem_3_1 import polynomial, degree, is_big_o, is_big_omega, is_big_theta
 
-import Chapter02.Problem_2_1 as problem
+def test_case_a_k_greater_than_d():
+    """
+    Case (a): If k > d, then p(n) = O(n^k).
+    Example: p(n) = 1 + 3n^2, d = 2, k = 3.
+    """
+    coeffs = [1, 0, 3]
+    k = 3
+    g = lambda n: n ** k
+    p = lambda n: polynomial(n, coeffs)
+    n_vals = range(50, 500, 50)
+    assert is_big_o(p, g, n_vals, c=10)
 
+def test_case_b_k_less_than_d():
+    """
+    Case (b): If k < d, then p(n) = Ω(n^k).
+    Example: p(n) = 1 + 3n^2, d = 2, k = 1.
+    """
+    coeffs = [1, 0, 3]
+    k = 1
+    g = lambda n: n ** k
+    p = lambda n: polynomial(n, coeffs)
+    n_vals = range(50, 500, 50)
+    assert is_big_omega(p, g, n_vals, c=0.1)
 
-def test_max_n_for_time_increases_with_limit():
-    """Check that larger time limits allow for larger n."""
-    small_limit = 1_000
-    large_limit = 1_000_000
-    f = problem.functions["n^2"]
-    n_small = problem.max_n_for_time(small_limit, f)
-    n_large = problem.max_n_for_time(large_limit, f)
-    assert n_large > n_small
+def test_case_c_k_equal_d():
+    """
+    Case (c): If k = d, then p(n) = Θ(n^k).
+    Example: p(n) = 1 + 3n^2, d = 2, k = 2.
+    """
+    coeffs = [1, 0, 3]
+    k = 2
+    g = lambda n: n ** k
+    p = lambda n: polynomial(n, coeffs)
+    n_vals = range(50, 500, 50)
+    assert is_big_theta(p, g, n_vals, c1=0.1, c2=10)
 
+def test_case_d_k_greater_than_d_not_omega():
+    """
+    Case (d): If k > d, then p(n) != Ω(n^k).
+    Example: p(n) = 1 + 3n^2, d = 2, k = 3.
+    """
+    coeffs = [1, 0, 3]
+    k = 3
+    g = lambda n: n ** k
+    p = lambda n: polynomial(n, coeffs)
+    n_vals = range(50, 500, 50)
+    assert not is_big_omega(p, g, n_vals, c=0.1)
 
-def test_log_n_case():
-    """For log n, even huge limits should allow very large n."""
-    f = problem.functions["log n"]
-    limit = problem.time_limits["1 century"]
-    n_value = problem.max_n_for_time(limit, f)
-    assert n_value > 10**10  # log n grows extremely slowly
+def test_case_e_k_less_than_d_not_big_o():
+    """
+    Case (e): If k < d, then p(n) != O(n^k).
+    Example: p(n) = 1 + 3n^2, d = 2, k = 1.
+    """
+    coeffs = [1, 0, 3]
+    k = 1
+    g = lambda n: n ** k
+    p = lambda n: polynomial(n, coeffs)
+    n_vals = range(50, 500, 50)
+    assert not is_big_o(p, g, n_vals, c=10)
 
-
-def test_factorial_case():
-    """For n!, max n should be small even for big limits."""
-    f = problem.functions["n!"]
-    limit = problem.time_limits["1 year"]
-    n_value = problem.max_n_for_time(limit, f)
-    assert n_value < 20
+def test_case_f_k_not_equal_d_not_theta():
+    """
+    Case (f): If k != d, then p(n) != Θ(n^k).
+    Example: p(n) = 1 + 3n^2, d = 2, k = 1.
+    """
+    coeffs = [1, 0, 3]
+    k = 1
+    g = lambda n: n ** k
+    p = lambda n: polynomial(n, coeffs)
+    n_vals = range(50, 500, 50)
+    assert not is_big_theta(p, g, n_vals, c1=0.1, c2=10)
