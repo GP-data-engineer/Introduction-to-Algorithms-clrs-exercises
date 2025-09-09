@@ -1,12 +1,8 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest
+from Exercise_3_2_6 import compare_factorial_growth
 
-import pytest
-from src.Chapter03.Exercise_3_2_6 import solution_function
-
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_factorial_growth():
+    for n in range(3, 10):
+        greater, smaller = compare_factorial_growth(n)
+        assert greater
+        assert smaller
