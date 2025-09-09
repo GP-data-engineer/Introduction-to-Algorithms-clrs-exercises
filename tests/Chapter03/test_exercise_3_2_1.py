@@ -1,5 +1,5 @@
-﻿import pytest
-from Exercise_3_2_1 import is_monotonic_increasing, sum_of_functions, product_of_functions
+import pytest
+from src.Chapter03.Exercise_3_2_1 import is_monotonic_increasing, sum_of_functions, product_of_functions
 
 def test_sum_and_product_monotonic():
     f = lambda n: n

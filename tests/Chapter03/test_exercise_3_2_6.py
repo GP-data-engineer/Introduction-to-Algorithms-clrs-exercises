@@ -1,5 +1,5 @@
-﻿import pytest
-from Exercise_3_2_6 import compare_factorial_growth
+import pytest
+from src.Chapter03.Exercise_3_2_6 import compare_factorial_growth
 
 def test_factorial_growth():
     for n in range(3, 10):

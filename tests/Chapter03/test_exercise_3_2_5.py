@@ -1,5 +1,5 @@
-﻿import pytest
-from Exercise_3_2_5 import log_factorial
+import pytest
+from src.Chapter03.Exercise_3_2_5 import log_factorial
 
 def test_log_factorial_growth():
     for n in range(2, 20):
