@@ -1,12 +1,7 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest
+from Exercise_3_2_5 import log_factorial
 
-import pytest
-from src.Chapter03.Exercise_3_2_5 import solution_function
-
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_log_factorial_growth():
+    for n in range(2, 20):
+        log_fact, nlogn = log_factorial(n)
+        assert 0.5 * nlogn <= log_fact <= 2 * nlogn
