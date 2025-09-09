@@ -1,12 +1,6 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest
+from Exercise_3_2_2 import log_product
 
-import pytest
-from src.Chapter03.Exercise_3_2_2 import solution_function
-
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_log_product_identity():
+    val1, val2 = log_product(4, 8, 2)
+    assert pytest.approx(val1, 0.0001) == val2
