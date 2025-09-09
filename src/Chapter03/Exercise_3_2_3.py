@@ -8,3 +8,7 @@ def factorial_greater_than_power_of_two(n):
     if n < 1:
         raise ValueError("n must be >= 1")
     return math.factorial(n) > 2**n
+
+if __name__ == "__main__":
+    for n in range(1, 8):
+        print(f"{n}! > 2^{n} ?", factorial_greater_than_power_of_two(n))
