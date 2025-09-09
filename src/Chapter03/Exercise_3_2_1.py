@@ -14,3 +14,15 @@ def sum_of_functions(f, g, n_values):
 def product_of_functions(f, g, n_values):
     """Return list of f(n) * g(n) for given n values."""
     return [f(n) * g(n) for n in n_values]
+
+if __name__ == "__main__":
+    f = lambda n: n
+    g = lambda n: n**2
+    n_values = list(range(1, 6))
+    sums = sum_of_functions(f, g, n_values)
+    prods = product_of_functions(f, g, n_values)
+    print("n values:", n_values)
+    print("f(n) + g(n):", sums)
+    print("f(n) * g(n):", prods)
+    print("Sum monotonic?", is_monotonic_increasing(sums))
+    print("Product monotonic?", is_monotonic_increasing(prods))
