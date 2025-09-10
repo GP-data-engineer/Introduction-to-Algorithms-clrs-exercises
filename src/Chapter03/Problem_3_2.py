@@ -1,4 +1,4 @@
-﻿"""
+﻿""" Problem_3_2.py
 Relative asymptotic order (in English):
 
 Given pairs of functions (A, B), determine whether:

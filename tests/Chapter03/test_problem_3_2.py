@@ -1,4 +1,5 @@
-﻿import math
+﻿# test_problem_3_2.py
+import math
 import pytest
 from src.Chapter03.Problem_3_2 import analyze_pair
 
