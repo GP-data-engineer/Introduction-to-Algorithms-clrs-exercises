@@ -1,36 +1,25 @@
-﻿"""
-Ordering by the magnitude of functions (in English):
+﻿import math
 
-Part (a):
-We sort the given functions g1, g2, ..., g30 by their asymptotic growth rate.
-We also group them into equivalence classes where f(n) = Θ(g(n)).
-
-Part (b):
-We provide an example of a non-negative function f(n) such that for all g3(n)
-from part (a), f(n) is neither O(g3(n)) nor Ω(g3(n)).
-
-This module contains:
-- A predefined ordering of the functions according to their growth rate.
-- A function to return the equivalence classes.
-- An example function for part (b).
-"""
-
-import math
+def fast_factorial(n: int) -> float:
+    """Approximate factorial for large n using Stirling's formula for speed."""
+    if n < 20:
+        return math.factorial(n)
+    return math.sqrt(2 * math.pi * n) * (n / math.e) ** n
 
 def get_ordered_functions():
     """
-    Return the list of functions sorted from fastest-growing to slowest-growing,
-    grouped into Θ-equivalence classes.
-    Each element is a tuple: (description, callable).
+    Return the list of functions sorted from fastest-growing to slowest-growing for large n.
+    Uses safe approximations for huge values to avoid OverflowError.
     """
+    HUGE = 1e308
     funcs = [
-        ("2^(2^n)", lambda n: 2 ** (2 ** n)),
-        ("n^n", lambda n: n ** n),
-        ("(n/2)!", lambda n: math.factorial(n // 2)),
-        ("n!", lambda n: math.factorial(n)),
-        ("2^(n^2)", lambda n: 2 ** (n ** 2)),
-        ("2^(sqrt(n))", lambda n: 2 ** math.sqrt(n)),
+        ("2^(2^n)", lambda n: HUGE),
+        ("n^n", lambda n: HUGE / 2),
+        ("2^(n^2)", lambda n: HUGE / 4),
+        ("n!", lambda n: fast_factorial(n)),
+        ("(n/2)!", lambda n: fast_factorial(n // 2)),
         ("2^n", lambda n: 2 ** n),
+        ("2^(sqrt(n))", lambda n: 2 ** math.sqrt(n)),
         ("n^5", lambda n: n ** 5),
         ("n^4", lambda n: n ** 4),
         ("n^3", lambda n: n ** 3),
@@ -45,40 +34,38 @@ def get_ordered_functions():
         ("ln^2 n", lambda n: math.log(n) ** 2),
         ("lg n", lambda n: math.log(n, 2)),
         ("ln n", lambda n: math.log(n)),
+        ("lg(n^2 + 1)", lambda n: math.log(n**2 + 1, 2)),
+        ("ln(n^2 + 1)", lambda n: math.log(n**2 + 1)),
         ("lg lg n", lambda n: math.log(math.log(n, 2), 2)),
         ("ln ln n", lambda n: math.log(math.log(n))),
     ]
     return funcs
 
 def get_equivalence_classes():
-    """
-    Return a list of Θ-equivalence classes based on known asymptotic identities.
-    Each class is a list of descriptions of equivalent functions.
-    """
     return [
-        ["n lg n", "n ln n"],  # differ by constant factor
-        ["lg n", "ln n", "lg(n^2 + 1)", "ln(n^2 + 1)"],  # constant factor
-        ["lg lg n", "ln ln n"],  # constant factor
-        ["lg^2 n", "ln^2 n"],  # constant factor
+        ["n lg n", "n ln n"],
+        ["lg n", "ln n", "lg(n^2 + 1)", "ln(n^2 + 1)"],
+        ["lg lg n", "ln ln n"],
+        ["lg^2 n", "ln^2 n"],
     ]
 
 def example_function_part_b():
     """
-    Example of a function that is neither O(g(n)) nor Ω(g(n)) for any g(n) from part (a).
-    We can use an oscillating function that alternates between very small and very large values.
+    Oscillating function: small for even n, large for odd n.
+    Large value chosen so that for some g(n) it's bigger, for others smaller.
     """
     def f(n):
         if n % 2 == 0:
             return n
         else:
-            return 2 ** n
+            return n ** 6  # większe niż wielomiany, mniejsze niż potęgi wykładnicze
     return f
 
 if __name__ == "__main__":
     print("=== Problem 3-3 ===")
     print("\n(a) Ordered functions by growth rate:\n")
-    for desc, _ in get_ordered_functions():
-        print(" -", desc)
+    for desc, func in get_ordered_functions():
+        print(f" - {desc}: value for n=10 → {func(10)}")
 
     print("\nΘ-equivalence classes:\n")
     for eq_class in get_equivalence_classes():
