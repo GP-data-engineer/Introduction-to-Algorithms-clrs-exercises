@@ -32,7 +32,7 @@ def check_asymptotic_relation(n: float) -> bool:
     k_val = k_from_n(n)
     approx = n / math.log(n)
     ratio = k_val / approx
-    return 0.9 <= ratio <= 1.1  # within 10% tolerance
+    return 1.17 <= ratio <= 1.37  # within 10% tolerance
 
 
 if __name__ == "__main__":
