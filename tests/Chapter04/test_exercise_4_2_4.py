@@ -1,12 +1,16 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿"""
+Unit tests for Exercise 4.2-4 (theoretical computation of k threshold).
+"""
 
 import pytest
-from src.Chapter04.Exercise_4_2_4 import solution_function
+from src.Chapter04.Exercise_4_2_4 import compute_k_threshold
 
-def test_basic_case():
-    assert solution_function() is None
 
-def test_additional_case():
-    assert True
+def test_compute_k_threshold_type():
+    k = compute_k_threshold()
+    assert isinstance(k, int)
+
+
+def test_compute_k_threshold_value():
+    k = compute_k_threshold()
+    assert k > 0
