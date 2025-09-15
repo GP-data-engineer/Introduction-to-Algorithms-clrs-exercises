@@ -1,18 +1,18 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿"""
+Exercise 4.2-4
+Theoretical computation for k in 3x3 multiplication to beat Strassen's complexity.
+"""
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+def compute_k_threshold() -> int:
+    """
+    Returns the largest k such that multiplying 3x3 matrices with k multiplications
+    yields complexity o(n^(log2(7))).
+    """
+    from math import log2
+    # We want k^(log_3(n)) < n^(log2(7))
+    # This is a placeholder for demonstration
+    return 21  # Example value for demonstration
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 4_2_4:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    print("Largest k for improved complexity:", compute_k_threshold())
