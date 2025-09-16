@@ -12,7 +12,7 @@ def test_positive_numbers():
 
 def test_negative_numbers():
     # (-2 + 5i) * (4 - 3i) = (-8 - 15) + (-2*-3 + 5*4)i = -23 + 26i
-    assert multiply_complex_3muls(-2, 5, 4, -3) == (-23, 26)
+    assert multiply_complex_3muls(-2, 5, 4, -3) == (7, 26)
 
 def test_with_zero():
     # (0 + 0i) * (7 + 9i) = 0 + 0i
