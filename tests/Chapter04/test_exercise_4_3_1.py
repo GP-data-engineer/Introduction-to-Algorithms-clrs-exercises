@@ -1,12 +1,14 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿# Exercise 4.3-1
+# Solve T(n) = T(n/2) + n and show that the solution is O(n)
 
-import pytest
-from src.Chapter04.Exercise_4_3_1 import solution_function
+def recurrence_4_3_1(n):
+    # Base case
+    if n <= 1:
+        return 1
+    # Recursive case: T(n) = T(n/2) + n
+    return recurrence_4_3_1(n // 2) + n
 
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+if __name__ == "__main__":
+    # Demonstration for n = 16
+    result = recurrence_4_3_1(16)
+    print(f"Result for T(16): {result}")
