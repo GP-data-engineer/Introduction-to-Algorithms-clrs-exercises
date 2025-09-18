@@ -1,18 +1,15 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Unit tests for Exercise 4.3-1
+# Verifies correctness of recurrence_4_3_1 implementation
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+import pytest
+from src.Chapter04.Exercise_4_3_1 import recurrence_4_3_1
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def test_recurrence_4_3_1_small():
+    # Test base and small values
+    assert recurrence_4_3_1(1) == 1
+    assert recurrence_4_3_1(2) == 3
+    assert recurrence_4_3_1(4) == 7
 
-if __name__ == "__main__":
-    print("Demonstration of Exercise 4_3_1:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+def test_recurrence_4_3_1_growth():
+    # For n = 16, expected result is 31
+    assert recurrence_4_3_1(16) == 31
