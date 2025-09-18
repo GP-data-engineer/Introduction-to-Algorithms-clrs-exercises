@@ -1,15 +1,15 @@
-﻿# Unit tests for Exercise 4.3-2
-# Verifies correctness of recurrence_4_3_2 implementation
+﻿# Exercise 4.3-2
+# This function solves the recurrence relation T(n) = T(n/2) + 1
+# It demonstrates that the time complexity is O(log n)
 
-import pytest
-from src.Chapter04.Exercise_4_3_2 import recurrence_4_3_2
+def recurrence_4_3_2(n):
+    # Base case: constant time for n <= 1
+    if n <= 1:
+        return 1
+    # Recursive case: divide problem size by 2 and add constant cost
+    return recurrence_4_3_2(n // 2) + 1
 
-def test_recurrence_4_3_2_small():
-    # Test base and small values
-    assert recurrence_4_3_2(1) == 1
-    assert recurrence_4_3_2(2) == 2
-    assert recurrence_4_3_2(4) == 3
-
-def test_recurrence_4_3_2_log_growth():
-    # For n = 16, expected result is 5
-    assert recurrence_4_3_2(16) == 5
+if __name__ == "__main__":
+    # Example usage: compute T(16)
+    result = recurrence_4_3_2(16)
+    print(f"Result for T(16): {result}")
