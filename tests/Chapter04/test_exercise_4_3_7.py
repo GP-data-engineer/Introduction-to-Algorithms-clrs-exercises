@@ -7,8 +7,8 @@ from src.Chapter04.Exercise_4_3_7 import recurrence_4_3_7
 @pytest.mark.parametrize("n,expected", [
     (1, 1),
     (2, 8),
-    (4, 64),
-    (8, 320),
+    (4, 48),
+    (8, 256),
     (16, 1280)
 ])
 def test_recurrence_4_3_7_values(n, expected):
