@@ -1,15 +1,15 @@
-﻿# Exercise 4.3-1
-# This function solves the recurrence relation T(n) = T(n/2) + n
-# It demonstrates that the time complexity is O(n)
+﻿    # Unit tests for Exercise 4.3-1
+# Verifies correctness of recurrence_4_3_1 implementation
 
-def recurrence_4_3_1(n):
-    # Base case: for n <= 1, return constant time
-    if n <= 1:
-        return 1
-    # Recursive case: divide the problem size by 2 and add linear cost
-    return recurrence_4_3_1(n // 2) + n
+import pytest
+from src.Chapter04.Exercise_4_3_1 import recurrence_4_3_1
 
-if __name__ == "__main__":
-    # Example usage: compute T(16)
-    result = recurrence_4_3_1(16)
-    print(f"Result for T(16): {result}")
+def test_recurrence_4_3_1_small():
+    # Test base and small values
+    assert recurrence_4_3_1(1) == 1
+    assert recurrence_4_3_1(2) == 3
+    assert recurrence_4_3_1(4) == 7
+
+def test_recurrence_4_3_1_growth():
+    # For n = 16, expected result is 31
+    assert recurrence_4_3_1(16) == 31
