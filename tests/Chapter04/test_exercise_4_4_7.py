@@ -12,3 +12,5 @@ def test_recurrence_4_4_7_values(n):
         recurrence_4_4_7(n - 2) +
         recurrence_4_4_7(n - 3)
     )
+
+    
