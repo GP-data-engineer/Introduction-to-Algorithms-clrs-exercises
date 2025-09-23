@@ -1,18 +1,19 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿"""
+Exercise 4.5-2
+Professor Cezar's matrix multiplication algorithm recurrence:
+T(n) = aT(n/4) + n²
+We find the largest integer 'a' such that the algorithm is asymptotically faster than Strassen's O(n^2.81).
+"""
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+# Polish description:
+# Tutaj obliczamy największą wartość parametru a, dla której algorytm Cezara jest szybszy niż Strassena.
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+import math
+
+def max_a():
+    # We need a < 4^(2.81/2) = 4^1.405 ≈ 5.278
+    return math.floor(5.278)  # largest integer a = 5
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 4_5_2:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    print("Exercise 4.5-2 Result:")
+    print("Largest a:", max_a())
