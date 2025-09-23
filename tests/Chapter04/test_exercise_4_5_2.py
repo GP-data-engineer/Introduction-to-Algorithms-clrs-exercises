@@ -1,12 +1,10 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿"""
+Tests for Exercise 4.5-2
+We check if the computed maximum 'a' is correct.
+"""
 
 import pytest
-from src.Chapter04.Exercise_4_5_2 import solution_function
+from src.Chapter04.Exercise_4_5_2 import max_a
 
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_max_a():
+    assert max_a() == 5
