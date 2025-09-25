@@ -1,18 +1,34 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿"""
+Exercise 4.5-4
+Solve recurrence T(n) = 3T(n/2) + n using:
+a) Master Theorem
+b) Recursion tree
+c) Substitution method
+d) Find largest r such that T(n) = O(n^r)
+"""
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+# Polish description:
+# Rozwiązujemy rekurencję T(n) = 3T(n/2) + n różnymi metodami.
+# Wynik: Θ(n^log₂3) ≈ Θ(n^1.585).
+# Największe r: r = log₂3.
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+import math
+
+def master_theorem():
+    return "Θ(n^log₂3) ≈ Θ(n^1.585)"
+
+def recursion_tree():
+    return "Θ(n^log₂3) ≈ Θ(n^1.585)"
+
+def substitution_method():
+    return "Θ(n^log₂3) ≈ Θ(n^1.585)"
+
+def largest_r():
+    return math.log(3, 2)  # log₂3 ≈ 1.585
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 4_5_4:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    print("Exercise 4.5-4 Results:")
+    print("a) Master Theorem:", master_theorem())
+    print("b) Recursion Tree:", recursion_tree())
+    print("c) Substitution Method:", substitution_method())
+    print("d) Largest r:", largest_r())
