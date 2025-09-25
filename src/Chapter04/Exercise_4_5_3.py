@@ -1,18 +1,16 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿"""
+Exercise 4.5-3
+Solve recurrence T(n) = 2T(n/2) + n log n
+Expected solution: T(n) = Θ(n log log n)
+"""
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+# Polish description:
+# Rozwiązanie rekurencji T(n) = 2T(n/2) + n log n przy użyciu metody uniwersalnej.
+# Wynik to Θ(n log log n).
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def recurrence_solution():
+    return "Θ(n log log n)"
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 4_5_3:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    print("Exercise 4.5-3 Result:")
+    print(recurrence_solution())
