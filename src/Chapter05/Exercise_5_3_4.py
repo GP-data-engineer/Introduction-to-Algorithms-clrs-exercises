@@ -1,18 +1,17 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿"""
+Exercise 5.3-4
+English: Why does PERMUTE-BY-CYCLIC not generate a uniform random permutation?
+Polish: Dlaczego PERMUTE-BY-CYCLIC nie generuje równomiernie losowej permutacji?
+"""
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+# Polish description:
+# PERMUTE-BY-CYCLIC generuje tylko przesunięcia cykliczne tablicy.
+# Każdy element ma prawdopodobieństwo 1/n bycia na swojej pozycji,
+# ale nie wszystkie permutacje są osiągalne.
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def permute_by_cyclic_uniform():
+    return False
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 5_3_4:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    print("Exercise 5.3-4 Result:")
+    print("Is it uniform?", permute_by_cyclic_uniform())
