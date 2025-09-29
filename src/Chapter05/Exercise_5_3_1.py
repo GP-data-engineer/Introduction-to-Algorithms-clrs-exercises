@@ -1,18 +1,26 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿"""
+Exercise 5.3-1
+English: Modify RANDOMIZE-IN-PLACE so that the loop invariant is valid before the first iteration,
+and adapt the proof of Lemma 5.5 accordingly.
+Polish: Zmień RANDOMIZE-IN-PLACE tak, aby niezmiennik pętli był prawdziwy przed pierwszą iteracją
+i zmodyfikuj dowód lematu 5.5.
+"""
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+# Polish description:
+# Standardowy RANDOMIZE-IN-PLACE zaczyna od pustej podtablicy.
+# Modyfikacja: zaczynamy od i=0 i zamieniamy element z losowym z całej tablicy,
+# dzięki czemu niezmiennik (podtablica jest permutacją) jest spełniony od początku.
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+import random
+
+def randomize_in_place(A):
+    n = len(A)
+    for i in range(n):
+        j = random.randint(i, n-1)
+        A[i], A[j] = A[j], A[i]
+    return A
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 5_3_1:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    arr = [1, 2, 3, 4, 5]
+    print("Exercise 5.3-1 Result:")
+    print("Randomized array:", randomize_in_place(arr))
