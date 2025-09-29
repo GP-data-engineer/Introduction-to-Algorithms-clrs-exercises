@@ -1,12 +1,11 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿"""
+Tests for Exercise 5.3-4
+English: We check if the answer is False.
+Polish: Sprawdzamy, czy odpowiedź to False.
+"""
 
 import pytest
-from src.Chapter05.Exercise_5_3_4 import solution_function
+from src.Chapter05.Exercise_5_3_4 import permute_by_cyclic_uniform
 
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_permute_by_cyclic_uniform():
+    assert permute_by_cyclic_uniform() is False
