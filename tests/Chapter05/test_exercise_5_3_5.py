@@ -1,5 +1,5 @@
 ﻿"""
-Tests for Exercise 5.5
+Tests for Exercise 5.3-5
 English: We check if probability formula is correct.
 Polish: Sprawdzamy, czy wzór na prawdopodobieństwo jest poprawny.
 """
