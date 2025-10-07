@@ -1,12 +1,5 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest
+from src.Chapter06.Exercise_6_2_6 import max_heapify_complexity
 
-import pytest
-from src.Chapter06.Exercise_6_2_6 import solution_function
-
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_max_heapify_complexity():
+    assert "Ω(log n)" in max_heapify_complexity()
