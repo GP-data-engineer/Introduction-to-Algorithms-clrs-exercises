@@ -1,12 +1,5 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest 
+from src.Chapter06.Exercise_6_2_4 import max_heapify_on_leaf
 
-import pytest
-from src.Chapter06.Exercise_6_2_4 import solution_function
-
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_max_heapify_on_leaf():
+    assert "leaf" in max_heapify_on_leaf()

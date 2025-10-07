@@ -1,18 +1,12 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿"""
+Exercise 6.2-4
+English: What happens if MAX-HEAPIFY(A, i) is called for i > A.heap-size/2?
+Polish: Jaki jest skutek wywołania MAX-HEAPIFY(A, i) dla i > A.heap-size/2?
+"""
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
-
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def max_heapify_on_leaf():
+    return "No effect, since i is a leaf."
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 6_2_4:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    print("Exercise 6.2-4 Result:")
+    print(max_heapify_on_leaf())
