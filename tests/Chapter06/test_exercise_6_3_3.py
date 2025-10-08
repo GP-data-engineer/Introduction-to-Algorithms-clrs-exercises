@@ -1,12 +1,6 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest
+from src.Chapter06.Exercise_6_3_3 import nodes_at_height
 
-import pytest
-from src.Chapter06.Exercise_6_3_3 import solution_function
-
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_nodes_at_height():
+    assert nodes_at_height(16, 1) == 8
+    assert nodes_at_height(16, 2) == 4
