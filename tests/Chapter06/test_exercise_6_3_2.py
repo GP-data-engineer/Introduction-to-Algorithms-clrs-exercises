@@ -1,12 +1,5 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest
+from src.Chapter06.Exercise_6_3_2 import build_heap_loop_reason
 
-import pytest
-from src.Chapter06.Exercise_6_3_2 import solution_function
-
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_build_heap_loop_reason():
+    assert "children" in build_heap_loop_reason()
