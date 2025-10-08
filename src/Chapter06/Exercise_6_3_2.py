@@ -1,18 +1,16 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿"""
+Exercise 6.3-2
+English: Why does BUILD-MAX-HEAP loop from floor(n/2) down to 1 instead of 1 up to floor(n/2)?
+Polish: Dlaczego w BUILD-MAX-HEAP pętla idzie od ⌊n/2⌋ w dół do 1, zamiast od 1 do ⌊n/2⌋?
+"""
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+# Polish description:
+# Ponieważ liście nie wymagają heapify, zaczynamy od ostatniego węzła wewnętrznego
+# i schodzimy w dół, aby każdy podkopiec był poprawny przed użyciem go wyżej.
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def build_heap_loop_reason():
+    return "We go from floor(n/2) down to 1 so that children are heapified before parents."
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 6_3_2:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    print("Exercise 6.3-2 Result:")
+    print(build_heap_loop_reason())
