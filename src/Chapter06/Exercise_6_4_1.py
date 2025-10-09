@@ -1,43 +1,41 @@
 ﻿"""
-Exercise 6.4-1 / Zadanie 6.4-1
----------------------------------
-EN: Illustrate the operation of the HEAPSORT procedure for the array 
-A = [5, 13, 2, 25, 7, 17, 20, 8, 4].
-
-PL: Zilustruj działanie procedury HEAPSORT dla tablicy 
-A = [5, 13, 2, 25, 7, 17, 20, 8, 4].
+Exercise 6.4-1
+English: Illustrate the operation of HEAPSORT for array A = (5, 13, 2, 25, 7, 17, 20, 8, 4).
+Polish: Zilustruj działanie HEAPSORT dla tablicy A = (5, 13, 2, 25, 7, 17, 20, 8, 4).
 """
 
-def heapify(arr, n, i):
-    """Ensure subtree rooted at index i satisfies max-heap property."""
-    largest = i
-    left = 2 * i + 1
-    right = 2 * i + 2
+# Polish description:
+# HEAPSORT działa w dwóch krokach: (1) budowa kopca max, (2) wielokrotne usuwanie maksimum.
+# Wynik to tablica posortowana rosnąco.
 
-    if left < n and arr[left] > arr[largest]:
-        largest = left
-    if right < n and arr[right] > arr[largest]:
-        largest = right
-    if largest != i:
-        arr[i], arr[largest] = arr[largest], arr[i]
-        heapify(arr, n, largest)
+def heapsort(A):
+    def max_heapify(A, i, n):
+        while True:
+            l, r = 2*i+1, 2*i+2
+            largest = i
+            if l < n and A[l] > A[largest]:
+                largest = l
+            if r < n and A[r] > A[largest]:
+                largest = r
+            if largest != i:
+                A[i], A[largest] = A[largest], A[i]
+                i = largest
+            else:
+                break
 
-def build_max_heap(arr):
-    """Build max heap from array."""
-    n = len(arr)
-    for i in range(n // 2 - 1, -1, -1):
-        heapify(arr, n, i)
+    def build_max_heap(A):
+        n = len(A)
+        for i in range(n//2 - 1, -1, -1):
+            max_heapify(A, i, n)
 
-def heapsort(arr):
-    """Perform heapsort."""
-    n = len(arr)
-    build_max_heap(arr)
-    for i in range(n - 1, 0, -1):
-        arr[0], arr[i] = arr[i], arr[0]
-        heapify(arr, i, 0)
-    return arr
+    n = len(A)
+    build_max_heap(A)
+    for i in range(n-1, 0, -1):
+        A[0], A[i] = A[i], A[0]
+        max_heapify(A, 0, i)
+    return A
 
 if __name__ == "__main__":
-    A = [5, 13, 2, 25, 7, 17, 20, 8, 4]
-    print("Original:", A)
-    print("Sorted:", heapsort(A))
+    arr = [5, 13, 2, 25, 7, 17, 20, 8, 4]
+    print("Exercise 6.4-1 Result:")
+    print(heapsort(arr))
