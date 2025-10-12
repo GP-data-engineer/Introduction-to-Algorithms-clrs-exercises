@@ -1,12 +1,9 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest 
+from src.Chapter07.Exercise_7_1_1 import partition
 
-import pytest
-from src.Chapter07.Exercise_7_1_1 import solution_function
-
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_partition():
+    arr = [13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]
+    q, result = partition(arr, 0, len(arr)-1)
+    pivot = result[q]
+    assert all(x <= pivot for x in result[:q])
+    assert all(x >= pivot for x in result[q+1:])
