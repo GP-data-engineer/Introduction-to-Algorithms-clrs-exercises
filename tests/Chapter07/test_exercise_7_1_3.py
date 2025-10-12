@@ -1,12 +1,5 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest
+from src.Chapter07.Exercise_7_1_3 import partition_average_case
 
-import pytest
-from src.Chapter07.Exercise_7_1_3 import solution_function
-
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_partition_average_case():
+    assert "Θ(n)" in partition_average_case()
