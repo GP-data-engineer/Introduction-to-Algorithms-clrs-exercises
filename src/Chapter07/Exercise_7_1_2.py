@@ -1,10 +1,10 @@
-﻿"""
+﻿""" 
 Exercise 7.1-2
 English: What value q does PARTITION return if all elements are equal?
 Modify PARTITION so that q = floor((p+r)/2) in this case.
 Polish: Jaką wartość q zwraca PARTITION, gdy wszystkie elementy są równe?
 Zmodyfikuj PARTITION tak, aby q = ⌊(p+r)/2⌋ w tym przypadku.
-"""
+""" 
 
 def partition_equal(A, p, r):
     if all(A[i] == A[p] for i in range(p, r+1)):
