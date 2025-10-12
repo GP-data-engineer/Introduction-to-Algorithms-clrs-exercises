@@ -1,12 +1,7 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest
+from src.Chapter07.Exercise_7_1_2 import partition_equal
 
-import pytest
-from src.Chapter07.Exercise_7_1_2 import solution_function
-
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_partition_equal():
+    arr = [5, 5, 5, 5]
+    q, _ = partition_equal(arr, 0, len(arr)-1)
+    assert q == (0 + len(arr)-1)//2
