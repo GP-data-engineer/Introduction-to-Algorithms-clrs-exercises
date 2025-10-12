@@ -1,18 +1,18 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿"""
+Exercise 7.1-4
+English: How to modify QUICKSORT to sort in non-increasing order?
+Polish: Jak zmodyfikować QUICKSORT, aby sortował w porządku nierosnącym?
+"""
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
-
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def quicksort_desc(A):
+    if len(A) <= 1:
+        return A
+    pivot = A[-1]
+    left = [x for x in A[:-1] if x >= pivot]
+    right = [x for x in A[:-1] if x < pivot]
+    return quicksort_desc(left) + [pivot] + quicksort_desc(right)
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 7_1_4:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    arr = [3, 6, 1, 8, 4]
+    print("Exercise 7.1-4 Result:")
+    print(quicksort_desc(arr))
