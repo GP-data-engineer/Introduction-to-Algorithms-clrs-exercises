@@ -1,18 +1,11 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿"""
+Exercise 7.2-2
+English: Running time of QUICKSORT when all elements are equal.
+Polish: Czas działania QUICKSORT, gdy wszystkie elementy są równe.
+"""
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
-
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def quicksort_equal_elements():
+    return "Θ(n^2), because partitioning is always unbalanced."
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 7_2_2:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    print("Exercise 7.2-2 Result:", quicksort_equal_elements())
