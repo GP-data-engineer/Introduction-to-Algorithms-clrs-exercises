@@ -1,11 +1,46 @@
-﻿"""
-Exercise 7.2-2
-English: Running time of QUICKSORT when all elements are equal.
-Polish: Czas działania QUICKSORT, gdy wszystkie elementy są równe.
-"""
+﻿# Exercise_7_2_2.py
+# PL: Zadanie 7.2-2 - Jaki jest czas działania Quicksort, gdy wszystkie elementy tablicy A mają taką samą wartość?
+# EN: Exercise 7.2-2 - Running time of Quicksort when all array elements are equal.
+#
+# Implementation:
+# - Lomuto partition-based quicksort instrumented to count comparisons.
+# - quicksort_count(arr) returns number of comparisons and swaps.
+# - For array of all-equal elements, classic Lomuto partition yields worst-case behavior ~ Theta(n^2).
 
-def quicksort_equal_elements():
-    return "Θ(n^2), because partitioning is always unbalanced."
+from typing import List, Tuple
+
+def lomuto_partition(A: List[int], lo: int, hi: int, counters: dict) -> int:
+    pivot = A[hi]
+    i = lo - 1
+    for j in range(lo, hi):
+        counters['comparisons'] += 1
+        if A[j] <= pivot:
+            i += 1
+            A[i], A[j] = A[j], A[i]
+            counters['swaps'] += 1
+    A[i+1], A[hi] = A[hi], A[i+1]
+    counters['swaps'] += 1
+    return i + 1
+
+def quicksort_count(A: List[int]) -> Tuple[List[int], dict]:
+    """
+    Perform quicksort (in-place) using Lomuto partition and count comparisons & swaps.
+    Returns sorted array and counters dict.
+    """
+    counters = {'comparisons': 0, 'swaps': 0}
+    A_copy = list(A)
+    def _qs(lo: int, hi: int):
+        if lo < hi:
+            q = lomuto_partition(A_copy, lo, hi, counters)
+            _qs(lo, q - 1)
+            _qs(q + 1, hi)
+    _qs(0, len(A_copy) - 1)
+    return A_copy, counters
 
 if __name__ == "__main__":
-    print("Exercise 7.2-2 Result:", quicksort_equal_elements())
+    # Demo with all-equal array
+    n = 20
+    arr = [5] * n
+    sorted_arr, counters = quicksort_count(arr)
+    print(f"n={n}, comparisons={counters['comparisons']}, swaps={counters['swaps']}")
+    print("Expected comparisons ~ n(n-1)/2 for worst-case partitioning.")
