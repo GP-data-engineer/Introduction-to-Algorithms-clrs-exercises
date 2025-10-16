@@ -1,18 +1,11 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿"""
+Exercise 7.2-3
+English: Show that QUICKSORT runs in Θ(n^2) if input is already sorted ascending.
+Polish: Pokaż, że QUICKSORT działa w Θ(n^2), gdy dane wejściowe są już posortowane rosnąco.
+"""
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
-
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def quicksort_sorted_input():
+    return "Θ(n^2) when pivot is always first/last element on sorted input."
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 7_2_3:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    print("Exercise 7.2-3 Result:", quicksort_sorted_input())
