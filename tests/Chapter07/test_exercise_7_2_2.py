@@ -1,12 +1,5 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest 
+from src.Chapter07.Exercise_7_2_2 import quicksort_equal_elements
 
-import pytest
-from src.Chapter07.Exercise_7_2_2 import solution_function
-
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_quicksort_equal_elements():
+    assert "Θ(n^2)" in quicksort_equal_elements()
