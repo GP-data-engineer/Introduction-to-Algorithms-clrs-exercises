@@ -1,6 +1,6 @@
-﻿# test_exercise_8_3_1.py
+﻿# test_exercise_8_3_1.py 
 import pytest
-from src.Chapter06 import Exercise_8_3_1 as ex
+from src.Chapter08 import Exercise_8_3_1 as ex
 
 def test_radix_sort_strings_example():
     words = ["COW","DOG","SEA","RUG","ROW","MOB","BOX","TAB","BAR","EAR","TAR","DIG","BIG","TEA","NOW","FOX"]

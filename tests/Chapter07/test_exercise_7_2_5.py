@@ -2,7 +2,7 @@
 # Tests for Exercise_7_2_5.py
 
 import math
-from src.Chapter06 import Exercise_7_2_5 as ex
+from src.Chapter07 import Exercise_7_2_5 as ex
 
 def test_formulas_and_simulation_agree():
     n = 1000

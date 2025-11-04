@@ -1,7 +1,7 @@
-﻿# corrected test_exercise_8_1_4.py with import math
+﻿# corrected test_exercise_8_1_4.py with import math 
 import pytest
 import math
-from src.Chapter06 import Exercise_8_1_4 as ex
+from src.Chapter08 import Exercise_8_1_4 as ex
 
 def test_lower_bound_basic():
     n, k = 100, 5

@@ -3,7 +3,7 @@
 
 import math
 import random
-from src.Chapter06 import Exercise_7_2_6 as ex
+from src.Chapter07 import Exercise_7_2_6 as ex
 
 def test_theoretical_vs_approx():
     n = 101

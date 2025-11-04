@@ -1,7 +1,7 @@
 ﻿# test_exercise_7_4_4.py
 # Tests for Exercise_7_4_4.py
 
-from src.Chapter06 import Exercise_7_4_4 as ex
+from src.Chapter07 import Exercise_7_4_4 as ex
 import math
 
 def test_expected_comparisons_grows_like_nlogn():

@@ -2,7 +2,7 @@
 # Tests for Exercise_7_2_2.py
 
 import pytest
-from src.Chapter06 import Exercise_7_2_2 as ex
+from src.Chapter07 import Exercise_7_2_2 as ex
 
 def test_all_equal_quicksort_counts():
     # For n elements all equal, Lomuto partition will do comparisons ~ n(n-1)/2 (worst-case quadratic)

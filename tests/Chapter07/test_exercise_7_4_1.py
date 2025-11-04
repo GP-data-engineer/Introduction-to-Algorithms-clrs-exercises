@@ -1,7 +1,7 @@
 ﻿# test_exercise_7_4_1.py
 # Tests for Exercise_7_4_1.py
 
-from src.Chapter06 import Exercise_7_4_1 as ex
+from src.Chapter07 import Exercise_7_4_1 as ex
 
 def test_simulated_vs_lower_bound_grows_quadratically():
     # For increasing n, both lower bound and simulated T(n) should grow ~ n^2

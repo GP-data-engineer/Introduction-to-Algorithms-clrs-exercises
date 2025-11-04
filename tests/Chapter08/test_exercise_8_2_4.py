@@ -1,7 +1,7 @@
-﻿# test_exercise_8_2_4.py
+﻿# test_exercise_8_2_4.py 
 import pytest
 import random
-from src.Chapter06 import Exercise_8_2_4 as ex
+from src.Chapter08 import Exercise_8_2_4 as ex
 
 def test_preprocessor_basic_queries():
     A = [2, 5, 3, 2, 0, 10, 7, 5, 3, 2]

@@ -3,7 +3,7 @@
 
 import pytest
 import random
-from src.Chapter06 import Exercise_7_2_4 as ex
+from src.Chapter07 import Exercise_7_2_4 as ex
 
 def test_insertion_better_on_nearly_sorted():
     random.seed(1)

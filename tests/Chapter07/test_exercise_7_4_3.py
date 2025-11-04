@@ -1,7 +1,7 @@
 ﻿# test_exercise_7_4_3.py
 # Tests for Exercise_7_4_3.py
 
-from src.Chapter06 import Exercise_7_4_3 as ex
+from src.Chapter07 import Exercise_7_4_3 as ex
 
 def test_quadratic_max_at_edges():
     for n in [2, 3, 5, 10, 20]:

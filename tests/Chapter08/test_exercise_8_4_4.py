@@ -1,4 +1,4 @@
-﻿"""
+﻿""" 
 Testy do zadania 8.4.4 (PL): Sprawdzamy poprawność sortowania punktów według odległości od środka.
 
 Tests for Exercise 8.4.4 (EN): Verifies correct sorting of points by distance from origin.

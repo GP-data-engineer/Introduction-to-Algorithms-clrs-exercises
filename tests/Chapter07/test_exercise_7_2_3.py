@@ -2,7 +2,7 @@
 # Tests for Exercise_7_2_3.py
 
 import pytest
-from src.Chapter06 import Exercise_7_2_3 as ex
+from src.Chapter07 import Exercise_7_2_3 as ex
 
 def test_decreasing_array_quadratic_behavior():
     for n in [20, 50]:

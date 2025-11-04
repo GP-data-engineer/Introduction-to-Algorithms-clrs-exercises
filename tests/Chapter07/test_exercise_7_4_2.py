@@ -1,7 +1,7 @@
 ﻿# test_exercise_7_4_2.py
 # Tests for Exercise_7_4_2.py
 
-from src.Chapter06 import Exercise_7_4_2 as ex
+from src.Chapter07 import Exercise_7_4_2 as ex
 import math
 
 def test_balanced_quicksort_comparisons_scale_like_nlogn():

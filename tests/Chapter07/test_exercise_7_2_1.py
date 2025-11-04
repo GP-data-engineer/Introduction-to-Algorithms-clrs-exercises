@@ -4,7 +4,7 @@
 
 import math
 import pytest
-from src.Chapter06 import Exercise_7_2_1 as ex
+from src.Chapter07 import Exercise_7_2_1 as ex
 
 def test_compute_recurrence_small():
     # With a=1,b=0,c=1 we can compute closed form: T(n)=1 + sum_{k=2..n} k = 1 + (n(n+1)/2 -1) = n(n+1)/2

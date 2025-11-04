@@ -1,7 +1,7 @@
 ﻿# test_exercise_7_4_6.py
 # Tests for Exercise_7_4_6.py
 
-from src.Chapter06 import Exercise_7_4_6 as ex
+from src.Chapter07 import Exercise_7_4_6 as ex
 
 def test_theoretical_and_simulation_agree():
     n = 101

@@ -1,7 +1,7 @@
-﻿# test_exercise_8_3_4.py
+﻿# test_exercise_8_3_4.py 
 import pytest
 import random
-from src.Chapter06 import Exercise_8_3_4 as ex
+from src.Chapter08 import Exercise_8_3_4 as ex
 
 def test_sort_numbers_range_and_correctness():
     for n in [1, 2, 5, 10, 50]:

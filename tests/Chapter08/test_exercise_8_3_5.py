@@ -1,6 +1,6 @@
-﻿# test_exercise_8_3_5.py
+﻿# test_exercise_8_3_5.py 
 import pytest
-from src.Chapter06 import Exercise_8_3_5 as ex
+from src.Chapter08 import Exercise_8_3_5 as ex
 
 def test_phases_and_piles_basic():
     phases, piles = ex.phases_and_piles_for_decimal(5)

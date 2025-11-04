@@ -1,6 +1,6 @@
-﻿# test_exercise_8_3_3.py
+﻿# test_exercise_8_3_3.py 
 import pytest
-from src.Chapter06 import Exercise_8_3_3 as ex
+from src.Chapter08 import Exercise_8_3_3 as ex
 
 def test_proof_text_contains_stability_keyword():
     txt = ex.proof_text().lower()

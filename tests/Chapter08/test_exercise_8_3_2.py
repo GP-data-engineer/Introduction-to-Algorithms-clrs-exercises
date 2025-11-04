@@ -1,6 +1,6 @@
-﻿# test_exercise_8_3_2.py
+﻿# test_exercise_8_3_2.py 
 import pytest
-from src.Chapter06 import Exercise_8_3_2 as ex
+from src.Chapter08 import Exercise_8_3_2 as ex
 
 def test_stability_answers_format():
     ans = ex.answers()

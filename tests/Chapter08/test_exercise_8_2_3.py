@@ -1,6 +1,6 @@
-﻿# test_exercise_8_2_3.py
+﻿# test_exercise_8_2_3.py 
 import pytest
-from src.Chapter06 import Exercise_8_2_3 as ex
+from src.Chapter08 import Exercise_8_2_3 as ex
 
 def test_left_to_right_produces_sorted():
     keys = [2, 0, 2, 1, 3, 1, 2]

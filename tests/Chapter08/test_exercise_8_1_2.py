@@ -1,6 +1,6 @@
-﻿# test_exercise_8_1_2.py
+﻿# test_exercise_8_1_2.py 
 import pytest
-from src.Chapter06 import Exercise_8_1_2 as ex
+from src.Chapter08 import Exercise_8_1_2 as ex
 import math
 
 def test_direct_sum_agrees_with_lgamma():

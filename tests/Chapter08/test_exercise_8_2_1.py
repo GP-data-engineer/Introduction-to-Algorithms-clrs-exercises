@@ -1,6 +1,6 @@
-﻿# test_exercise_8_2_1.py
+﻿# test_exercise_8_2_1.py 
 import pytest
-from src.Chapter06 import Exercise_8_2_1 as ex
+from src.Chapter08 import Exercise_8_2_1 as ex
 
 def test_counting_sort_trace_and_result():
     A = [6, 0, 2, 0, 1, 3, 4, 6, 1, 3, 2]

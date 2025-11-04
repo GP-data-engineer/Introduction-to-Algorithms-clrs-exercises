@@ -1,6 +1,6 @@
-﻿# test_exercise_8_1_3.py
+﻿# test_exercise_8_1_3.py 
 import pytest
-from src.Chapter06 import Exercise_8_1_3 as ex
+from src.Chapter08 import Exercise_8_1_3 as ex
 
 def test_required_c_half_grows():
     # For moderate n the required c for fraction 1/2 should be > 1 (so linear with small constant impossible)

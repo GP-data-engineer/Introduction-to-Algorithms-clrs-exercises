@@ -1,7 +1,7 @@
 ﻿# test_exercise_7_4_5.py
 # Tests for Exercise_7_4_5.py
 
-from src.Chapter06 import Exercise_7_4_5 as ex
+from src.Chapter07 import Exercise_7_4_5 as ex
 import random
 
 def test_hybrid_estimate_and_behavior():

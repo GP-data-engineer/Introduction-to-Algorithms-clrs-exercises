@@ -1,6 +1,6 @@
-﻿# test_exercise_8_2_2.py
+﻿# test_exercise_8_2_2.py 
 import pytest
-from src.Chapter06 import Exercise_8_2_2 as ex
+from src.Chapter08 import Exercise_8_2_2 as ex
 
 def test_counting_sort_stability_on_example():
     keys = [2, 5, 3, 2, 3, 5, 2]
