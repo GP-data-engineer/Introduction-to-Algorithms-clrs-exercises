@@ -1,12 +1,7 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest
+from src.Chapter06.Exercise_8_4_2 import bucket_sort_with_merge
 
-import pytest
-from src.Chapter08.Exercise_8_4_2 import solution_function
-
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_bucket_sort_merge():
+    A = [0.99, 0.98, 0.97, 0.96, 0.95, 0.94]
+    expected = sorted(A)
+    assert bucket_sort_with_merge(A) == pytest.approx(expected)
