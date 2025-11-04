@@ -2,7 +2,15 @@
 # English: Explain why the worst-case running time of bucket sort is Θ(n²). How can it be modified so that its average case remains linear, but the worst-case becomes O(n log n)?
 # Polish: Wyjaśnij, dlaczego pesymistyczny czas działania sortowania kubełkowego to Θ(n²). Jak można go zmodyfikować, aby średni czas pozostał liniowy, a pesymistyczny wynosił O(n log n)?
 
-from src.Chapter06.Exercise_8_4_1 import bucket_sort
+import sys
+from pathlib import Path
+
+# add repo root to sys.path so "from src..." imports work when running script directly
+repo_root = Path(__file__).resolve().parents[2]  # dostosuj 2 jeśli struktura jest inna
+sys.path.insert(0, str(repo_root))
+
+from src.Chapter08.Exercise_8_4_1 import bucket_sort
+
 
 def bucket_sort_with_merge(A):
     """Modified bucket sort using Merge Sort inside each bucket for better worst-case time."""
