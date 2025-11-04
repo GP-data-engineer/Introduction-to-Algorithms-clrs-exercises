@@ -1,18 +1,30 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿"""
+Zadanie 8.4.5 (PL): Sortuj n zmiennych losowych zgodnie z jednostajnym rozkładem o ciągłej dystrybuancie P(x), którą można obliczyć w czasie Θ(1). Algorytm powinien działać w czasie średnim Θ(n).
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+Exercise 8.4.5 (EN): Sort n random variables drawn from a uniform distribution with continuous CDF P(x), computable in Θ(1). The algorithm should run in average-case Θ(n) time.
+"""
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def bucket_sort_uniform(values):
+    """
+    Sortowanie zmiennych losowych z jednostajnego rozkładu [0,1] w czasie liniowym.
+    """
+    n = len(values)
+    buckets = [[] for _ in range(n)]
+
+    for x in values:
+        index = min(n - 1, int(x * n))  # Skalowanie do koszyka
+        buckets[index].append(x)
+
+    sorted_values = []
+    for bucket in buckets:
+        sorted_values.extend(sorted(bucket))
+
+    return sorted_values
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 8_4_5:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    import random
+    random.seed(123)
+    values = [random.uniform(0, 1) for _ in range(20)]
+    sorted_vals = bucket_sort_uniform(values)
+    print("Posortowane wartości zmiennych losowych:")
+    print(sorted_vals)
