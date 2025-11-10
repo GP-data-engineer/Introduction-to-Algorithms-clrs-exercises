@@ -1,18 +1,21 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿"""
+Problem 8-2 (EN): In-place linear-time sorting of records with keys 0 or 1.
+Problem 8-2 (PL): Sortowanie w miejscu w czasie liniowym rekordów o kluczach 0 lub 1.
+"""
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
-
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Problem.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def in_place_binary_sort(arr):
+    """
+    Sortuje tablicę zawierającą tylko 0 i 1 w miejscu i w czasie O(n).
+    """
+    left = 0
+    for right in range(len(arr)):
+        if arr[right] == 0:
+            arr[left], arr[right] = arr[right], arr[left]
+            left += 1
+    return arr
 
 if __name__ == "__main__":
-    print("Demonstration of Problem 8_2:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    example = [1, 0, 1, 0, 0, 1, 1, 0]
+    print("Wejściowa tablica:", example)
+    sorted_arr = in_place_binary_sort(example)
+    print("Posortowana tablica:", sorted_arr)
