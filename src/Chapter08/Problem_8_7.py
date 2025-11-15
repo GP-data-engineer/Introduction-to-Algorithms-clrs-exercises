@@ -1,6 +1,8 @@
 ﻿"""
 Problem 8.6 (EN): Analyze the lower bound for merging two sorted lists of size n using comparisons.
 Problem 8.6 (PL): Analiza dolnej granicy dla scalania dwóch posortowanych list o rozmiarze n za pomocą porównań.
+
+to jest źle zrobione
 """
 
 from math import comb, log2
