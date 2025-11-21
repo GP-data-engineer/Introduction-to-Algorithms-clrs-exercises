@@ -1,18 +1,22 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 9.2-4 (EN): Describe the worst-case partition sequence of RANDOMIZED-SELECT when finding the minimum.
+# Exercise 9.2-4 (PL): Opisz pesymistyczny ciąg podziałów algorytmu RANDOMIZED-SELECT przy wyszukiwaniu minimum.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
-
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def worst_case_randomized_select_trace(A, i):
+    # Symuluje pesymistyczny przebieg RANDOMIZED-SELECT dla minimum
+    trace = []
+    low = 0
+    high = len(A) - 1
+    while low <= high:
+        pivot_index = high  # najgorszy przypadek: pivot to największy
+        pivot = A[pivot_index]
+        trace.append((A[low:high+1], pivot))
+        # wszystkie elementy mniejsze trafiają na lewo
+        high = pivot_index - 1
+    return trace
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 9_2_4:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    A = [3, 2, 9, 0, 7, 5, 4, 8, 6, 1]
+    trace = worst_case_randomized_select_trace(A.copy(), 1)
+    print("Pesymistyczny przebieg RANDOMIZED-SELECT dla minimum:")
+    for step, pivot in trace:
+        print(f"Podział: {step}, pivot: {pivot}")
