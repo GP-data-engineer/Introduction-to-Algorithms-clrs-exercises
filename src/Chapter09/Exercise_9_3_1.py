@@ -1,18 +1,23 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 9.3-1 (EN): Analyze whether SELECT runs in linear time with groups of 7 or 3 elements.
+# Exercise 9.3-1 (PL): Przeanalizuj, czy SELECT działa w czasie liniowym dla grup 7 lub 3 elementów.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
-
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def select_group_size_analysis(n, group_size):
+    """
+    Analizuje czy algorytm SELECT działa w czasie liniowym dla danego rozmiaru grupy.
+    Zwraca szacunkowy rozmiar podproblemu w rekurencji.
+    """
+    groups = n // group_size
+    median_of_medians = groups // 2
+    guaranteed_partition = n - median_of_medians
+    return {
+        "n": n,
+        "group_size": group_size,
+        "median_of_medians": median_of_medians,
+        "guaranteed_partition_size": guaranteed_partition
+    }
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 9_3_1:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    print("Analiza dla grupy 7:")
+    print(select_group_size_analysis(140, 7))
+    print("\nAnaliza dla grupy 3:")
+    print(select_group_size_analysis(140, 3))
