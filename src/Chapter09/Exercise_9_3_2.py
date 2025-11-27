@@ -1,5 +1,5 @@
 ﻿# Exercise 9.3-2 (EN): Show that for n > 140, SELECT guarantees at least ⌈n/4⌉ elements > and < median of medians.
-# Exercise 9.3-2 (PL): Pokaż, że dla n > 140 SELECT gwarantuje co najmniej ⌈n/4⌉ elementów większych i mniejszych od mediany median.
+# Exercise 9.3-2 (PL): Pokaż , że dla n > 140 SELECT gwarantuje co najmniej ⌈n/4⌉ elementów większych i mniejszych od mediany median.
 
 import math
 
