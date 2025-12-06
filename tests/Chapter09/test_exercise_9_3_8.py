@@ -1,18 +1,11 @@
-﻿# Exercise 9.3.8 (EN): Compute k-quantiles in linear time in k.
-# Exercise 9.3.8 (PL): Wyznacz k-kwantyle w czasie liniowym względem k.
+﻿
+# Test for Exercise 9.3.8 (EN): Verifies k-quantile computation.
+# Test do Exercise 9.3.8 (PL): Sprawdza wyznaczanie k-kwantyli.
 
-def compute_k_quantiles(A, k):
-    # Zwraca k−1 kwantyli dzielących zbiór na k części
-    A_sorted = sorted(A)
-    n = len(A)
-    quantiles = []
-    for i in range(1, k):
-        index = (i * n) // k
-        quantiles.append(A_sorted[index])
-    return quantiles
+import pytest
+from src.Chapter09.Exercise_9_3_8 import compute_k_quantiles
 
-if __name__ == "__main__":
+def test_quantiles():
     A = [3, 2, 9, 0, 7, 5, 4, 8, 6, 1]
-    k = 4
-    result = compute_k_quantiles(A, k)
-    print(f"{k}-kwantyle:", result)
+    result = compute_k_quantiles(A, 4)
+    assert result == [2, 5, 7]

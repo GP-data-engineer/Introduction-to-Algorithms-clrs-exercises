@@ -1,18 +1,18 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 9.3.8 (EN): Compute k-quantiles in linear time in k.
+# Exercise 9.3.8 (PL): Wyznacz k-kwantyle w czasie liniowym względem k.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
-
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def compute_k_quantiles(A, k):
+    # Zwraca k−1 kwantyli dzielących zbiór na k części
+    A_sorted = sorted(A)
+    n = len(A)
+    quantiles = []
+    for i in range(1, k):
+        index = (i * n) // k
+        quantiles.append(A_sorted[index])
+    return quantiles
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 9_3_8:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    A = [3, 2, 9, 0, 7, 5, 4, 8, 6, 1]
+    k = 4
+    result = compute_k_quantiles(A, k)
+    print(f"{k}-kwantyle:", result)
