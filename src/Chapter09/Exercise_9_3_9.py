@@ -1,18 +1,20 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 9.3.9 (EN): Find median of two sorted arrays of size n in O(log n).
+# Exercise 9.3.9 (PL): Wyznacz medianę dwóch posortowanych tablic o rozmiarze n w czasie O(log n).
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
-
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def find_median_sorted_arrays(X, Y):
+    # Zakładamy X i Y są posortowane i mają ten sam rozmiar
+    def helper(x, y):
+        if len(x) == 1:
+            return min(max(x[0], y[0]), max(x[0], y[-1]))
+        mid = len(x) // 2
+        if x[mid] < y[mid]:
+            return helper(x[mid:], y[:len(y)-mid])
+        else:
+            return helper(x[:len(x)-mid], y[mid:])
+    return helper(X, Y)
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 9_3_9:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    X = [1, 3, 5, 7, 9]
+    Y = [2, 4, 6, 8, 10]
+    median = find_median_sorted_arrays(X, Y)
+    print("Mediana dwóch tablic:", median)
