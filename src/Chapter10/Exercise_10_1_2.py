@@ -1,4 +1,4 @@
-﻿# Exercise 10.1-2 (EN): Implement two stacks in one array A[1..n] with O(1) PUSH and POP vvv.
+﻿# Exercise 10.1-2 (EN): Implement two stacks in one array A[1..n] with O(1) PUSH and POP.
 # Exercise 10.1-2 (PL): Zaimplementuj dwa stosy w jednej tablicy A[1..n] z operacjami PUSH i POP w czasie O(1).
 
 class DualStack:
