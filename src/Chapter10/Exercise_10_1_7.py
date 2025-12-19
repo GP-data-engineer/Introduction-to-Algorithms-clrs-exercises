@@ -1,18 +1,41 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 10.1-7 (EN): Implement a stack using two queues. Estimate operation time.
+# Exercise 10.1-7 (PL): Zaimplementuj stos za pomocą dwóch kolejek. Oszacuj czas działania operacji.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+from collections import deque
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+class StackViaQueues:
+    def __init__(self):
+        self.q1 = deque()
+        self.q2 = deque()
+
+    def push(self, x):
+        # Dodajemy do pustej kolejki q2, potem przenosimy wszystko z q1 do q2
+        self.q2.append(x)
+        while self.q1:
+            self.q2.append(self.q1.popleft())
+        # Zamieniamy kolejki
+        self.q1, self.q2 = self.q2, self.q1
+
+    def pop(self):
+        if not self.q1:
+            raise IndexError("Stack underflow")
+        return self.q1.popleft()
+
+    def top(self):
+        if not self.q1:
+            raise IndexError("Stack is empty")
+        return self.q1[0]
+
+    def state(self):
+        return list(self.q1)
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 10_1_7:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    s = StackViaQueues()
+    s.push(1)
+    s.push(2)
+    s.push(3)
+    print("Stan stosu:", s.state())
+    print("POP:", s.pop())
+    s.push(4)
+    print("Stan stosu:", s.state())
+    print("TOP:", s.top())
