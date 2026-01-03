@@ -3,7 +3,7 @@
 # O(1) only if we know the previous node.
 # Exercise 10.2-1 (PL): Pokaż, kiedy INSERT na liście jednokierunkowej działa w O(1)
 # i omów DELETE. INSERT jest O(1), jeśli wstawiamy po danym węźle; DELETE jest
-# O(1) tylko gdy znamy poprzednik usuwanego węzła.
+# O(1) tylko gdy znamy poprzednik usuwanego węzła .
 
 class Node:
     # Węzeł listy jednokierunkowej / Singly linked list node
