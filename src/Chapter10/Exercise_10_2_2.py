@@ -1,18 +1,15 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿import pytest
+from src.Chapter08.Exercise_10_2_2 import Stack
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+def test_stack_push_pop():
+    s = Stack()
+    s.push(10)
+    s.push(20)
+    assert s.pop() == 20
+    assert s.pop() == 10
+    assert s.is_empty()
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
-
-if __name__ == "__main__":
-    print("Demonstration of Exercise 10_2_2:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+def test_stack_empty_pop():
+    s = Stack()
+    with pytest.raises(IndexError):
+        s.pop()
