@@ -31,4 +31,4 @@ if __name__ == "__main__":
     lista.insert(20)
     lista.insert(30)
     wynik = lista.search(20)
-    print("Znaleziono:", wynik.key if wynik else "Brak")
+    print("Znaleziono:", wynik.key if wynik else "Brak ")
