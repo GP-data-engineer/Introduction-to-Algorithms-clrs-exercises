@@ -1,18 +1,49 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 10.2-6 — CLRS
+# EN: Design a list-based UNION operation for disjoint sets in O(1) time.
+# PL: Zaprojektuj operację UNION dla rozłącznych zbiorów w czasie O(1).
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+class Node:
+    def __init__(self, key):
+        self.key = key
+        self.next = None
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+class SetList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def insert(self, key):
+        new_node = Node(key)
+        if not self.head:
+            self.head = self.tail = new_node
+        else:
+            self.tail.next = new_node
+            self.tail = new_node
+
+    def union(self, other):
+        # Łączymy listy w czasie O(1)
+        if not self.head:
+            self.head = other.head
+            self.tail = other.tail
+        elif other.head:
+            self.tail.next = other.head
+            self.tail = other.tail
+        other.head = other.tail = None
+
+    def to_list(self):
+        result = []
+        x = self.head
+        while x:
+            result.append(x.key)
+            x = x.next
+        return result
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 10_2_6:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    s1 = SetList()
+    s2 = SetList()
+    for x in [1, 2, 3]:
+        s1.insert(x)
+    for y in [4, 5]:
+        s2.insert(y)
+    s1.union(s2)
+    print("UNION:", s1.to_list())
