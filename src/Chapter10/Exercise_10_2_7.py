@@ -1,18 +1,43 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 10.2-7 — CLRS
+# EN: Write a non-recursive procedure to reverse a singly linked list in Θ(n) time using constant space.
+# PL: Napisz nierekurencyjną procedurę odwracającą listę jednokierunkową w czasie Θ(n) przy stałej pamięci.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+class Node:
+    def __init__(self, key):
+        self.key = key
+        self.next = None
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+class SinglyList:
+    def __init__(self):
+        self.head = None
+
+    def insert(self, key):
+        new_node = Node(key)
+        new_node.next = self.head
+        self.head = new_node
+
+    def reverse(self):
+        prev = None
+        curr = self.head
+        while curr:
+            next_node = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next_node
+        self.head = prev
+
+    def to_list(self):
+        result = []
+        x = self.head
+        while x:
+            result.append(x.key)
+            x = x.next
+        return result
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 10_2_7:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    l = SinglyList()
+    for i in range(1, 6):
+        l.insert(i)
+    print("Przed odwróceniem:", l.to_list())
+    l.reverse()
+    print("Po odwróceniu:", l.to_list())
