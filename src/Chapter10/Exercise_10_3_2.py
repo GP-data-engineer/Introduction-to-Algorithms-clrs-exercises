@@ -1,18 +1,26 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 10.3-2 — CLRS
+# EN: Implement ALLOCATE-OBJECT and FREE-OBJECT for homogeneous single-table representation.
+# PL: Zaimplementuj ALLOCATE-OBJECT i FREE-OBJECT dla jednotablicowej reprezentacji homogenicznej.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+class ObjectPool:
+    def __init__(self, size):
+        self.pool = [None] * size
+        self.free = list(range(size))  # stos wolnych pozycji
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+    def allocate_object(self, key):
+        if not self.free:
+            raise MemoryError("Brak wolnych pozycji")
+        index = self.free.pop()
+        self.pool[index] = {"key": key, "prev": None, "next": None}
+        return index
+
+    def free_object(self, index):
+        self.pool[index] = None
+        self.free.append(index)
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 10_3_2:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    pool = ObjectPool(5)
+    idx = pool.allocate_object(42)
+    print("Zaalokowano obiekt na pozycji:", idx)
+    pool.free_object(idx)
+    print("Zwolniono pozycję:", idx)
