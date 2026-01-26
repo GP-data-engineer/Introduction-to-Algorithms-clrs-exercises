@@ -1,4 +1,4 @@
-﻿from src.Chapter08.Exercise_10_3_1 import multitable_representation, single_table_representation
+﻿from src.Chapter10.Exercise_10_3_1 import multitable_representation, single_table_representation
 
 def test_multitable_structure():
     seq = [1, 2, 3]

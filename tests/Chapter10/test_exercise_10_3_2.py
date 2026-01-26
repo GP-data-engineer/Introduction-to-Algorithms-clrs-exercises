@@ -1,5 +1,5 @@
 ﻿import pytest
-from src.Chapter08.Exercise_10_3_2 import MemoryManager
+from src.Chapter10.Exercise_10_3_2 import MemoryManager
 
 def test_allocate_and_free():
     mm = MemoryManager(3)

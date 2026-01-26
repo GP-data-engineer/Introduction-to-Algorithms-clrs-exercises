@@ -1,5 +1,5 @@
 ﻿import pytest
-from src.Chapter08.Exercise_10_2_3 import Queue
+from src.Chapter10.Exercise_10_2_3 import Queue
 
 def test_queue_enqueue_dequeue():
     q = Queue()

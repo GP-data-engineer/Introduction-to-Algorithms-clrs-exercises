@@ -1,18 +1,26 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 10.3-4 — CLRS
+# EN: Design ALLOCATE/ FREE to keep list elements in first m positions.
+# PL: Zaprojektuj ALLOCATE/ FREE tak, by elementy listy zajmowały pierwsze m pozycji.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+class CompactAllocator:
+    def __init__(self, size):
+        self.stack = list(reversed(range(size)))  # stos wolnych pozycji
+        self.memory = [None] * size
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+    def allocate(self, key):
+        if not self.stack:
+            raise MemoryError("Brak wolnych pozycji")
+        idx = self.stack.pop()
+        self.memory[idx] = {"key": key}
+        return idx
+
+    def free(self, idx):
+        self.memory[idx] = None
+        self.stack.append(idx)
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 10_3_4:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    alloc = CompactAllocator(4)
+    i1 = alloc.allocate(100)
+    i2 = alloc.allocate(200)
+    alloc.free(i1)
+    print("Zwolniono:", i1)

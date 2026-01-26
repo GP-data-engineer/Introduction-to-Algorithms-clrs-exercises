@@ -1,5 +1,5 @@
 ﻿import pytest
-from src.Chapter08.Exercise_10_2_4 import LinkedList
+from src.Chapter10.Exercise_10_2_4 import LinkedList
 
 def test_search_found():
     l = LinkedList()

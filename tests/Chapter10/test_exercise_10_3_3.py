@@ -3,7 +3,7 @@
 # PL: Sprawdź, że ALLOCATE-OBJECT i FREE-OBJECT nie modyfikują pola prev.
 
 import pytest
-from src.Chapter08.Exercise_10_3_3 import MemoryManager
+from src.Chapter10.Exercise_10_3_3 import MemoryManager
 
 def test_prev_field_unchanged():
     mm = MemoryManager(4)

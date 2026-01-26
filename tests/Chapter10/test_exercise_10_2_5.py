@@ -2,7 +2,7 @@
 
 
 import pytest
-from src.Chapter08.Exercise_10_2_5 import CyclicListDict
+from src.Chapter10.Exercise_10_2_5 import CyclicListDict
 
 def test_insert_search():
     d = CyclicListDict()

@@ -1,5 +1,5 @@
 ﻿import pytest
-from src.Chapter08.Exercise_10_2_7 import SinglyList
+from src.Chapter10.Exercise_10_2_7 import SinglyList
 
 def test_reverse_list():
     l = SinglyList()

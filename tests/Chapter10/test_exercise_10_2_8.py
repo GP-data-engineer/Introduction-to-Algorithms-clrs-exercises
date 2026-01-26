@@ -3,7 +3,7 @@
 # PL: Test operacji na liście dwukierunkowej z XOR.
 
 import pytest
-from src.Chapter08.Exercise_10_2_8 import XORLinkedList
+from src.Chapter10.Exercise_10_2_8 import XORLinkedList
 
 def test_insert_and_traverse():
     l = XORLinkedList()
