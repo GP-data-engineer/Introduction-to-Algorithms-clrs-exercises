@@ -1,4 +1,5 @@
-﻿from src.Chapter10.Exercise_10_3_5 import compactify_list
+﻿import pytest
+from src.Chapter10.Exercise_10_3_5 import compactify_list
 
 def test_compactify():
     L = {"key": [1, 2], "prev": [None, 0], "next": [1, None]}
