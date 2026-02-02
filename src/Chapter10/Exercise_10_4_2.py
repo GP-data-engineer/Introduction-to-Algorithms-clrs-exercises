@@ -1,18 +1,25 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 10.4-2 — CLRS
+# EN: Recursive O(n) procedure printing all keys of a binary tree.
+# PL: Rekurencyjna procedura O(n) wypisująca wszystkie klucze drzewa binarnego.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+class Node:
+    def __init__(self, key, left=None, right=None):
+        self.key = key
+        self.left = left
+        self.right = right
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def recursive_print_keys(root):
+    # Preorder: korzeń, lewo, prawo
+    result = []
+    def dfs(node):
+        if node is None:
+            return
+        result.append(node.key)
+        dfs(node.left)
+        dfs(node.right)
+    dfs(root)
+    return result
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 10_4_2:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    root = Node(8, Node(3), Node(10))
+    print("Klucze (rekurencyjnie):", recursive_print_keys(root))
