@@ -1,18 +1,35 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 10.4-5 — CLRS
+# EN: Non-recursive O(n) procedure with O(1) extra space printing all keys of a binary tree (Morris traversal).
+# PL: Nierekurencyjna procedura O(n) ze stałą pamięcią wypisująca wszystkie klucze drzewa binarnego (przejście Morrisa).
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+class Node:
+    def __init__(self, key, left=None, right=None):
+        self.key = key
+        self.left = left
+        self.right = right
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def morris_inorder_keys(root):
+    # Przejście Morrisa: inorder bez stosu i bez rekurencji
+    result = []
+    current = root
+    while current:
+        if current.left is None:
+            result.append(current.key)
+            current = current.right
+        else:
+            # Szukamy poprzednika w inorder
+            pre = current.left
+            while pre.right and pre.right is not current:
+                pre = pre.right
+            if pre.right is None:
+                pre.right = current  # Tworzymy tymczasowe łącze
+                current = current.left
+            else:
+                pre.right = None     # Usuwamy tymczasowe łącze
+                result.append(current.key)
+                current = current.right
+    return result
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 10_4_5:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    root = Node(2, Node(1), Node(3))
+    print("Klucze (Morris inorder):", morris_inorder_keys(root))
