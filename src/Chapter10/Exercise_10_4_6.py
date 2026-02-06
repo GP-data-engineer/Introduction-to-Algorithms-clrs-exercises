@@ -1,4 +1,4 @@
-﻿# Exercise 10.4-6 — CLRS
+﻿# Exercise 10.4-6 — CLRS_
 # EN: Use two pointers and one boolean per node to access parent and all children in a rooted tree.
 # PL: Użyj dwóch wskaźników i jednej zmiennej boolowskiej w węźle, aby wyznaczać ojca i wszystkich synów.
 
