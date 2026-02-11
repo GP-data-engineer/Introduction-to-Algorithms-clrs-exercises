@@ -1,4 +1,4 @@
-﻿# Exercise 11.1-4 — CLRS
+﻿# Exercise 11.1-4 — CLRS_
 # EN: Direct-address dictionary in a huge table without initialization; O(1) SEARCH/INSERT/DELETE and O(1) init.
 # PL: Słownik z adresowaniem bezpośrednim w ogromnej tablicy bez inicjalizacji; SEARCH/INSERT/DELETE w O(1) i inicjalizacja w O(1).
 
