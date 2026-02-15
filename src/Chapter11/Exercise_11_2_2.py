@@ -1,18 +1,30 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 11.2-2 (CLRS)
+# PL:
+# Zilustruj wstawianie elementów do tablicy z haszowaniem (metoda łańcuchowa).
+#
+# EN:
+# Illustrate insertion into a hash table with chaining.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+class HashTableChaining:
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+    def __init__(self, m):
+        self.m = m
+        self.table = [[] for _ in range(m)]
+
+    def h(self, k):
+        return k % self.m
+
+    def insert(self, key):
+        index = self.h(key)
+        self.table[index].append(key)
+
+    def get_table(self):
+        return self.table
+
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 11_2_2:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    keys = [5, 28, 19, 15, 20, 33, 12, 17, 10]
+    ht = HashTableChaining(9)
+    for k in keys:
+        ht.insert(k)
+    print("Hash table:", ht.get_table())
