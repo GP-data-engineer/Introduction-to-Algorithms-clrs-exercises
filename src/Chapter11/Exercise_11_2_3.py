@@ -1,18 +1,39 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 11.2-3 (CLRS)
+# PL:
+# Wpływ sortowania list łańcuchowych na czas operacji.
+#
+# EN:
+# Effect of keeping chains sorted on operation complexity.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+class SortedChainHashTable:
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+    def __init__(self, m):
+        self.m = m
+        self.table = [[] for _ in range(m)]
+
+    def h(self, k):
+        return k % self.m
+
+    def insert(self, key):
+        index = self.h(key)
+        chain = self.table[index]
+        chain.append(key)
+        chain.sort()  # maintain sorted order
+
+    def search(self, key):
+        index = self.h(key)
+        return key in self.table[index]
+
+    def delete(self, key):
+        index = self.h(key)
+        if key in self.table[index]:
+            self.table[index].remove(key)
+            return True
+        return False
+
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 11_2_3:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    ht = SortedChainHashTable(5)
+    ht.insert(10)
+    ht.insert(5)
+    print("Search 10:", ht.search(10))
