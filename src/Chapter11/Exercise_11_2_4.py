@@ -1,18 +1,32 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 11.2-4 (CLRS)
+# PL:
+# Przydzielanie i zwalnianie pamięci w obrębie tej samej tablicy.
+#
+# EN:
+# Memory allocation and deallocation inside the same hash table.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+class FreeListHashTable:
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+    def __init__(self, m):
+        self.m = m
+        self.table = [None] * m
+        self.free_list = list(range(m))
+
+    def allocate(self, key):
+        if not self.free_list:
+            raise Exception("No free space")
+        index = self.free_list.pop()
+        self.table[index] = key
+        return index
+
+    def free(self, index):
+        self.table[index] = None
+        self.free_list.append(index)
+
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 11_2_4:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    ht = FreeListHashTable(5)
+    idx = ht.allocate(10)
+    print("Allocated at:", idx)
+    ht.free(idx)
+    print("Freed.")
