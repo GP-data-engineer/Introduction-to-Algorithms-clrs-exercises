@@ -1,18 +1,14 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 11.2-5 (CLRS)
+# PL:
+# Jeśli |U| > n*m, istnieje podzbiór n kluczy haszujących się do tej samej pozycji.
+#
+# EN:
+# If |U| > n*m then there exists subset of n keys mapping to same slot.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+def pigeonhole_collision(U_size, n, m):
+    return U_size > n * m
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 11_2_5:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    print("Collision guaranteed:",
+          pigeonhole_collision(101, 10, 10))
