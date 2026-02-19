@@ -1,18 +1,28 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 11.2-6 (CLRS)
+# PL:
+# Procedura losowego wyboru klucza z tablicy z haszowaniem.
+#
+# EN:
+# Procedure returning random key in expected O(L(1+1/alpha)) time.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+import random
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+
+class RandomHashTable:
+
+    def __init__(self, table):
+        self.table = table
+        self.m = len(table)
+
+    def random_key(self):
+        non_empty = [chain for chain in self.table if chain]
+        if not non_empty:
+            return None
+        chain = random.choice(non_empty)
+        return random.choice(chain)
+
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 11_2_6:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    table = [[1, 2], [], [3], [], [4, 5]]
+    ht = RandomHashTable(table)
+    print("Random key:", ht.random_key())
