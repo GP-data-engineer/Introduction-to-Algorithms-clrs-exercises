@@ -1,12 +1,12 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest
+from src.Chapter11.Exercise_11_3_2 import modular_hash_string
 
-import pytest
-from src.Chapter11.Exercise_11_3_2 import solution_function
 
-def test_basic_case():
-    assert solution_function() is None
+def test_small_string():
+    assert modular_hash_string("a", 100) == ord("a") % 100
 
-def test_additional_case():
-    assert True
+
+def test_consistency():
+    s = "hello"
+    m = 1000
+    assert modular_hash_string(s, m) == modular_hash_string(s, m)
