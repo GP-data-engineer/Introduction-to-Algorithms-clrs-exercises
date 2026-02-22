@@ -1,18 +1,18 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 11.3-2 (CLRS)
+# PL:
+# Obliczanie k mod m dla bardzo długiego napisu (podstawa 128)
+# używając stałej dodatkowej pamięci.
+#
+# EN:
+# Compute k mod m for very long string (base 128 representation)
+# using constant additional memory.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+def modular_hash_string(s: str, m: int) -> int:
+    result = 0
+    for char in s:
+        result = (result * 128 + ord(char)) % m
+    return result
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 11_3_2:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    print("Hash:", modular_hash_string("abcd", 1000))
