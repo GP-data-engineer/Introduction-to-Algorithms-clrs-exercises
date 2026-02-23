@@ -1,18 +1,18 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 11.3-3 (CLRS)
+# PL:
+# Dla m = 2^p - 1 oraz h(k)=k mod m.
+# Jeśli x jest permutacją znaków y, to h(x)=h(y).
+#
+# EN:
+# For m = 2^p - 1 and h(k)=k mod m.
+# If x is permutation of y then h(x)=h(y).
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+def mersenne_hash(s: str, p: int) -> int:
+    m = 2**p - 1
+    total = sum(ord(c) for c in s)
+    return total % m
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 11_3_3:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    print(mersenne_hash("abc", 5))
+    print(mersenne_hash("cba", 5))
