@@ -1,12 +1,18 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿# Exercise 11.3-4 (CLRS)
+# PL:
+# Metoda mnożeniowa: h(k)=floor(m*(kA mod 1))
+#
+# EN:
+# Multiplication method: h(k)=floor(m*(kA mod 1))
 
-import pytest
-from src.Chapter11.Exercise_11_3_3 import solution_function
+import math
 
-def test_basic_case():
-    assert solution_function() is None
+def multiplication_hash(k: int, m: int):
+    A = (math.sqrt(5) - 1) / 2
+    return int(m * ((k * A) % 1))
 
-def test_additional_case():
-    assert True
+
+if __name__ == "__main__":
+    m = 1000
+    for k in [61, 62, 63, 64, 65]:
+        print(k, multiplication_hash(k, m))
