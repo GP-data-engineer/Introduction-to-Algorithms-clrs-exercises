@@ -1,28 +1,18 @@
-﻿# Exercise 11.2-4 — CLRS
-# EN: Memory allocation inside hash table using free list.
-# PL: Przydzielanie i zwalnianie pamięci w tablicy haszującej z listą wolnych pozycji.
+﻿# Exercise 11.3-4 (CLRS)
+# PL:
+# Metoda mnożeniowa: h(k)=floor(m*(kA mod 1))
+#
+# EN:
+# Multiplication method: h(k)=floor(m*(kA mod 1))
 
-class FreeListHashTable:
-    def __init__(self, m):
-        self.m = m
-        self.table = [None] * m
-        self.free = list(range(m))  # lista wolnych pozycji
+import math
 
-    def allocate(self, key):
-        if not self.free:
-            raise MemoryError("Brak wolnych pozycji")
-        idx = self.free.pop()
-        self.table[idx] = key
-        return idx
+def multiplication_hash(k: int, m: int):
+    A = (math.sqrt(5) - 1) / 2
+    return int(m * ((k * A) % 1))
 
-    def free_object(self, idx):
-        self.table[idx] = None
-        self.free.append(idx)
 
 if __name__ == "__main__":
-    ht = FreeListHashTable(5)
-    i1 = ht.allocate("A")
-    i2 = ht.allocate("B")
-    print("Tablica:", ht.table)
-    ht.free_object(i1)
-    print("Po zwolnieniu:", ht.table)
+    m = 1000
+    for k in [61, 62, 63, 64, 65]:
+        print(k, multiplication_hash(k, m))
