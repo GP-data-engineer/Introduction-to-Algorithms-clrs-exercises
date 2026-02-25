@@ -1,12 +1,6 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest
+from src.Chapter11.Exercise_11_3_5 import epsilon_lower_bound
 
-import pytest
-from src.Chapter11.Exercise_11_3_5 import solution_function
 
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_lower_bound():
+    assert epsilon_lower_bound(100, 10) == 1/10 - 1/100
