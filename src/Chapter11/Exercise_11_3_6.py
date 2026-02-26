@@ -1,18 +1,18 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 11.3-6 (CLRS)
+# PL:
+# h_b(a0,...,a_{r-1}) = (sum a_i b^i) mod p
+#
+# EN:
+# Polynomial hash over Z_p
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+def polynomial_hash(vector, b, p):
+    result = 0
+    power = 1
+    for a in vector:
+        result = (result + a * power) % p
+        power = (power * b) % p
+    return result
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 11_3_6:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    print(polynomial_hash([1,2,3], 5, 13))
