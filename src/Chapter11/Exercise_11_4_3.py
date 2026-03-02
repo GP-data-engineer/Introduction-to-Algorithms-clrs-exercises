@@ -1,18 +1,13 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 11.4-3 — CLRS
+# EN: Expected number of probes for successful and unsuccessful search.
+# PL: Oczekiwana liczba sprawdzeń dla sukcesu i porażki.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
-
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def expected_probes(alpha):
+    fail = 1 / (1 - alpha)
+    success = (1 / alpha) * (1 / (1 - alpha))
+    return success, fail
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 11_4_3:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    for a in [0.75, 0.875]:
+        s, f = expected_probes(a)
+        print(f"α={a}: success={s:.2f}, fail={f:.2f}")
