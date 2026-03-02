@@ -1,12 +1,6 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest
+from src.Chapter11.Exercise_11_4_3 import expected_probes
 
-import pytest
-from src.Chapter11.Exercise_11_4_3 import solution_function
-
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_expected_probes():
+    s, f = expected_probes(0.75)
+    assert f > s
