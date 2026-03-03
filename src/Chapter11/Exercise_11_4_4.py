@@ -1,28 +1,13 @@
-﻿# Exercise 10.4-4 — CLRS
-# EN: O(n) procedure printing all keys of a rooted tree in left-child/right-sibling representation.
-# PL: Procedura O(n) wypisująca wszystkie klucze drzewa ukorzenionego w reprezentacji „na lewo syn, na prawo brat”.
+﻿# Exercise 11.4-4 — CLRS
+# EN: Show that if d = gcd(m, h2(k)) ≥ 1, unsuccessful search checks only m/d slots.
+# PL: Pokaż, że jeśli d = NWD(m, h2(k)) ≥ 1, to wyszukiwanie kończące się porażką
+#     sprawdza tylko m/d pozycji.
 
-class LCNode:
-    def __init__(self, key, left_child=None, right_sibling=None):
-        self.key = key
-        self.left_child = left_child
-        self.right_sibling = right_sibling
+import math
 
-def print_lcrs_keys(root):
-    # Preorder: węzeł, jego dzieci (rekurencyjnie), potem rodzeństwo
-    result = []
-    def visit(node):
-        if node is None:
-            return
-        result.append(node.key)
-        visit(node.left_child)
-        visit(node.right_sibling)
-    visit(root)
-    return result
+def positions_checked(m, h2):
+    d = math.gcd(m, h2)
+    return m // d
 
 if __name__ == "__main__":
-    # Przykład: korzeń z dwoma synami
-    child2 = LCNode(3)
-    child1 = LCNode(2, right_sibling=child2)
-    root = LCNode(1, left_child=child1)
-    print("Klucze (LCRS):", print_lcrs_keys(root))
+    print("m=12, h2=4 → sprawdzonych pozycji:", positions_checked(12, 4))
