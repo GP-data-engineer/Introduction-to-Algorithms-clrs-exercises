@@ -1,18 +1,13 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 11.4-5 — CLRS
+# EN: Find load factors α for which expected probes remain constant.
+# PL: Znajdź współczynniki zapełnienia α, dla których liczba sprawdzeń jest stała.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
-
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def good_alpha():
+    # Z twierdzeń 11.6 i 11.8:
+    # sukces: ≤ (1/α) ln(1/(1-α))
+    # porażka: ≤ 1/(1-α)
+    # Stałe wartości → α < 0.5
+    return [0.25, 0.33, 0.4, 0.45]
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 11_4_5:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    print("Dobre wartości α:", good_alpha())
