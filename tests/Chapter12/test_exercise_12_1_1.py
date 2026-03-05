@@ -1,12 +1,7 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest
+from src.Chapter12.Exercise_12_1_1 import bst_drawings_description
 
-import pytest
-from src.Chapter12.Exercise_12_1_1 import solution_function
-
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_description_exists():
+    text = bst_drawings_description()
+    assert isinstance(text, str)
+    assert "BST" in text
