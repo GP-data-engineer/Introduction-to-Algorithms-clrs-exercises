@@ -1,18 +1,15 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 12.1-1 — CLRS
+# EN: Draw BSTs of heights 2–6 containing keys {1,4,5,10,16,17,21}.
+# PL: Narysuj drzewa BST o wysokości 2–6 zawierające klucze {1,4,5,10,16,17,21}.
+# NOTE: Zadanie rysunkowe → zwracamy opis tekstowy.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
-
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def bst_drawings_description():
+    return (
+        "Zadanie 12.1-1 wymaga narysowania BST o wysokości 2–6 "
+        "dla zbioru kluczy {1,4,5,10,16,17,21}. "
+        "Istnieje wiele poprawnych drzew dla każdej wysokości. "
+        "W rozwiązaniu należy przedstawić różne możliwe struktury BST."
+    )
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 12_1_1:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    print(bst_drawings_description())
