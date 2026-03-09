@@ -1,12 +1,6 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest
+from src.Chapter12.Exercise_12_1_3 import Node, inorder_nonrecursive
 
-import pytest
-from src.Chapter12.Exercise_12_1_3 import solution_function
-
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_inorder_basic():
+    root = Node(2, Node(1), Node(3))
+    assert inorder_nonrecursive(root) == [1, 2, 3]
