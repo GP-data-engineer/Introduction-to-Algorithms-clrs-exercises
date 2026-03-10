@@ -1,12 +1,10 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest
+from src.Chapter12.Exercise_12_1_4 import Node, preorder, postorder
 
-import pytest
-from src.Chapter12.Exercise_12_1_4 import solution_function
+def test_preorder():
+    root = Node(2, Node(1), Node(3))
+    assert preorder(root) == [2, 1, 3]
 
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_postorder():
+    root = Node(2, Node(1), Node(3))
+    assert postorder(root) == [1, 3, 2]

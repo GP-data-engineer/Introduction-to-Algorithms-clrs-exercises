@@ -1,18 +1,24 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 12.1-4 — CLRS
+# EN: Recursive preorder and postorder traversals.
+# PL: Rekurencyjne przejścia preorder i postorder.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+class Node:
+    def __init__(self, key, left=None, right=None):
+        self.key = key
+        self.left = left
+        self.right = right
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def preorder(root):
+    if root is None:
+        return []
+    return [root.key] + preorder(root.left) + preorder(root.right)
+
+def postorder(root):
+    if root is None:
+        return []
+    return postorder(root.left) + postorder(root.right) + [root.key]
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 12_1_4:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    root = Node(10, Node(5), Node(15))
+    print("Preorder:", preorder(root))
+    print("Postorder:", postorder(root))
