@@ -1,18 +1,24 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 12.2-2 — CLRS
+# EN: Recursive TREE-MINIMUM and TREE-MAXIMUM procedures.
+# PL: Rekurencyjne procedury TREE-MINIMUM i TREE-MAXIMUM.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+class Node:
+    def __init__(self, key, left=None, right=None):
+        self.key = key
+        self.left = left
+        self.right = right
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def tree_minimum(node):
+    if node.left is None:
+        return node
+    return tree_minimum(node.left)
+
+def tree_maximum(node):
+    if node.right is None:
+        return node
+    return tree_maximum(node.right)
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 12_2_2:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    root = Node(10, Node(5), Node(15))
+    print("Minimum:", tree_minimum(root).key)
+    print("Maximum:", tree_maximum(root).key)
