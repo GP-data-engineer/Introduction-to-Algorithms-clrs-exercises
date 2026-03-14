@@ -1,18 +1,34 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 12.2-3 — CLRS
+# EN: Implement TREE-PREDECESSOR procedure.
+# PL: Zaimplementuj procedurę TREE-PREDECESSOR.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+class Node:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+        self.parent = None
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def tree_predecessor(x):
+    if x.left:
+        return tree_maximum(x.left)
+    y = x.parent
+    while y and x == y.left:
+        x = y
+        y = y.parent
+    return y
+
+def tree_maximum(node):
+    while node.right:
+        node = node.right
+    return node
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 12_2_3:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    a = Node(10)
+    b = Node(5)
+    c = Node(15)
+    a.left = b
+    a.right = c
+    b.parent = a
+    c.parent = a
+    print("Poprzednik 15:", tree_predecessor(c).key)

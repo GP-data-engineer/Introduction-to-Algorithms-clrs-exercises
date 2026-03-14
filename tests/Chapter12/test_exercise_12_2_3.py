@@ -1,12 +1,12 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest
+from src.Chapter12.Exercise_12_2_3 import Node, tree_predecessor
 
-import pytest
-from src.Chapter12.Exercise_12_2_3 import solution_function
-
-def test_basic_case():
-    assert solution_function() is None
-
-def test_additional_case():
-    assert True
+def test_predecessor():
+    a = Node(20)
+    b = Node(10)
+    c = Node(30)
+    a.left = b
+    a.right = c
+    b.parent = a
+    c.parent = a
+    assert tree_predecessor(c).key == 20
