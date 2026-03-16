@@ -1,18 +1,13 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# Exercise 12.2-4 — CLRS
+# EN: Disprove Bunyan's BST property hypothesis.
+# PL: Obal hipotezę profesora Bunyana o BST.
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
-
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+def bunyan_counterexample():
+    return (
+        "Kontrprzykład: BST z kluczami 5 → 3 → 7 → 2 → 4 → 6 → 8.\n"
+        "Wyszukiwanie 1 kończy się w liściu, ale klucze po lewej i prawej stronie "
+        "ścieżki nie spełniają a < b < c dla wszystkich kombinacji."
+    )
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 12_2_4:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    print(bunyan_counterexample())
