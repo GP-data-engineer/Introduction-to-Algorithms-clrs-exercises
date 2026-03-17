@@ -1,18 +1,22 @@
-﻿\"\"\"
-Mathematical proof or explanation (comment in English):
+﻿# PL: Sprawdzenie czy sekwencja może powstać w BST SEARCH
+# EN: Check if sequence is valid BST search path
 
-[Insert a proof or a description of the solution here, if applicable.]
-\"\"\"
+def is_valid_bst_search(sequence, key):
+    low = float('-inf')
+    high = float('inf')
 
-def solution_function(*args, **kwargs):
-    \"\"\"
-    Core solution logic for the Exercise.
-    Replace parameters and logic with the actual implementation.
-    \"\"\"
-    # TODO: Implement the actual algorithm
-    return None
+    for x in sequence:
+        if x < low or x > high:
+            return False
+        if key < x:
+            high = x
+        elif key > x:
+            low = x
+        else:
+            return True
+    return False
+
 
 if __name__ == "__main__":
-    print("Demonstration of Exercise 12_2_1:")
-    example_result = solution_function()
-    print("Example result:", example_result)
+    seq = [2, 252, 401, 398, 330, 344, 397, 363]
+    print(is_valid_bst_search(seq, 363))

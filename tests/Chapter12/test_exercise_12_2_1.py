@@ -1,12 +1,10 @@
-﻿\"\"\"
-Proof or explanation (comment in English):
-\"\"\"
+﻿import pytest
+from src.Chapter12.Exercise_12_2_1 import is_valid_bst_search
 
-import pytest
-from src.Chapter12.Exercise_12_2_1 import solution_function
 
-def test_basic_case():
-    assert solution_function() is None
+def test_valid():
+    assert is_valid_bst_search([10, 5, 7], 7)
 
-def test_additional_case():
-    assert True
+
+def test_invalid():
+    assert not is_valid_bst_search([10, 5, 12, 6], 6)
