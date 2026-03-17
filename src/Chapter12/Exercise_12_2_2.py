@@ -1,24 +1,27 @@
-﻿# Exercise 12.2-2 — CLRS
-# EN: Recursive TREE-MINIMUM and TREE-MAXIMUM procedures.
-# PL: Rekurencyjne procedury TREE-MINIMUM i TREE-MAXIMUM.
+﻿# PL: Rekurencyjne TREE-MINIMUM i TREE-MAXIMUM
+# EN: Recursive tree minimum and maximum
 
 class Node:
-    def __init__(self, key, left=None, right=None):
+    def __init__(self, key):
         self.key = key
-        self.left = left
-        self.right = right
+        self.left = None
+        self.right = None
 
-def tree_minimum(node):
-    if node.left is None:
-        return node
-    return tree_minimum(node.left)
 
-def tree_maximum(node):
-    if node.right is None:
-        return node
-    return tree_maximum(node.right)
+def tree_minimum(x):
+    if x.left is None:
+        return x
+    return tree_minimum(x.left)
+
+
+def tree_maximum(x):
+    if x.right is None:
+        return x
+    return tree_maximum(x.right)
+
 
 if __name__ == "__main__":
-    root = Node(10, Node(5), Node(15))
-    print("Minimum:", tree_minimum(root).key)
-    print("Maximum:", tree_maximum(root).key)
+    root = Node(10)
+    root.left = Node(5)
+    root.right = Node(20)
+    print(tree_minimum(root).key)
